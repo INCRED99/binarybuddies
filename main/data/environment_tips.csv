@@ -1,0 +1,280 @@
+tip
+"Plant more trees to increase oxygen production."
+"Save water by fixing leaks promptly."
+"Switch off electrical appliances when not in use."
+"Use public transport to reduce carbon emissions."
+"Recycle and reuse materials whenever possible."
+"Conserve energy by using LED lights."
+"Participate in local clean-up drives."
+"Educate others about sustainable living."
+"Use reusable bags instead of plastic."
+"Support eco-friendly companies."
+
+
+# def load_questions():
+#     questions = []
+#     file_path = os.path.join(settings.BASE_DIR, 'quiz_questions.csv')
+#     with open(file_path, newline='') as csvfile:
+#         reader = csv.DictReader(csvfile)
+#         for row in reader:
+#             questions.append({
+#                 'question': row['question'],
+#                 'option1': row['option1'],
+#                 'option2': row['option2'],
+#                 'option3': row['option3'],
+#                 'option4': row['option4'],
+#                 'correct_option': row['correct_option'],
+#             })
+#     return questions
+
+# def quiz_view(request):
+#     questions = load_questions()
+#     if request.method == 'POST':
+#         username = request.POST.get('username', 'Anonymous')
+#         score = 0
+#         total = len(questions)
+
+#         for index, question in enumerate(questions):
+#             selected = request.POST.get(f'question_{index}')
+#             correct_answer = question['correct_option']
+#             if selected == correct_answer:
+#                 score += 1
+
+#         # Save the score
+#         UserScore.objects.create(username=username, score=score, total=total)
+
+#         # Past scores of user
+#         past_scores = UserScore.objects.filter(username=username)
+
+#         # Scores of others
+#         others_scores = UserScore.objects.exclude(username=username)
+
+#         # Recommendation logic
+#         if score == total:
+#             recommendation = "Excellent! You're an eco-champion!"
+#         elif score > total / 2:
+#             recommendation = "Good job! Keep learning to improve even more."
+#         else:
+#             recommendation = "Don't worry! Check out our resources to improve your eco-knowledge."
+
+#         return render(request, 'quiz.html', {
+#             'questions': questions,
+#             'submitted': True,
+#             'score': score,
+#             'total': total,
+#             'past_scores': past_scores,
+#             'others_scores': others_scores,
+#             'recommendation': recommendation
+#         })
+
+#     return render(request, 'quiz.html', {
+#         'questions': questions,
+#         'submitted': False
+#     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # Chatbot view
+# @csrf_exempt
+# def chatbot(request):
+#     if request.method == 'POST':
+#         try:
+#             data = json.loads(request.body)
+#             logger.info(f"Received data: {data}")
+#             user_message = data.get('message', '').lower()
+
+#             responses = {
+#                 'hello': "Hi there! How can I help you today?",
+#                 'hi': "Hello! How can I assist you?",
+#                 'landing page': "You can visit our landing page for more information at [Insert Landing Page URL].",
+               
+#             }
+
+#             # Check message for keywords
+#             reply = responses.get(user_message, responses['default'])
+#             return JsonResponse({'reply': reply})
+            
+#         except json.JSONDecodeError as e:
+#             logger.error(f"JSON decode error: {e}")
+#             return JsonResponse({'error': 'Invalid JSON format', 'details': str(e)}, status=400)
+#         except Exception as e:
+#             logger.error(f"Unexpected error in chatbot: {e}")
+#             return JsonResponse({'error': str(e)}, status=500)
+
+#     return JsonResponse({'reply': 'Invalid request method.'}, status=400)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="resultModalLabel"><i class="bi bi-patch-check-fill me-2"></i> Calculation Complete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h4 class="text-success">Your Carbon Footprint has been calculated!</h4>
+        <p>Please scroll down to see your sustainability stats.</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  <!-- 
+<div>
+  <center>
+    <h1>Your Sustainability Stats</h1>
+    {% if score %}
+    <h2>Your Carbon Footprint Score: {{ score }}</h2>
+    <p>{{ recommendation }}</p>
+    <p>Average Score Till Now: {{ average_score }}</p>
+    <p>{{ comparison }}</p>
+     {% endif %}
+     <form action="{% url 'reset_data' %}" method="post">
+       {% csrf_token %}
+       <button type="submit" style="background-color: red; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+           Reset
+  </button>
+</form>
+
+  </center>
+</div> -->
+
+
+  <!-- <center>
+    <h1>Carbon Footprint Calculator</h1>
+    <form method="POST" action="/predict/">
+      {% csrf_token %}
+      
+      Daily Electricity Usage (kWh): 
+      <input type="number" name="electricity" step="0.1" min="0" required><br><br>
+  
+      Daily Car Travel (km): 
+      <input type="number" name="car_km" step="0.1" min="0" required><br><br>
+  
+      Meat Meals per Week: 
+      <input type="number" name="meat_meals" min="0" required><br><br>
+  
+      Flights per Year: 
+      <input type="number" name="flights" min="0" required><br><br>
+  
+      <button type="submit">Submit</button>
+    </form>
+  </center>
+   -->
+
+
+
+
+
+
+
+
+   
+        <!-- Navigation Menu
+        <nav class="space-y-2 text-gray-700 font-medium text-sm">
+          <a href="#" class="flex items-center p-2 rounded-lg bg-green-100 text-green-700 font-semibold">
+            <span class="material-icons mr-3">dashboard</span> Dashboard
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">chat</span> Chatbot
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">whatshot</span> Streak
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">eco</span> Eco Facts
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">quiz</span> Quiz & Polls
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">group</span> Community
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">flag</span> Challenges
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">handshake</span> Partners
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">mail_outline</span> Contact Us
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">volunteer_activism</span> Contribute
+          </a>
+        </nav>
+      </div> -->
+
+
+
+
+
+
+
+
+
+          <!-- Sidebar -->
+    <!-- Sidebar Container -->
+
+    <!-- <aside class="w-64 bg-white border-r shadow-md flex flex-col justify-between p-4">
+      <div> -->
+        <!-- Logo -->
+        <!-- <div class="flex items-center space-x-2 mb-8 text-green-600 font-bold text-xl">
+          <span class="text-2xl">🟢</span>
+          <span>EcoLife</span>
+        </div> -->
+
+        <!-- Search (optional) -->
+        <!-- <div class="mb-4">
+          <input type="text" placeholder="Search..."
+            class="w-full px-3 py-2 rounded-md bg-gray-100 text-sm focus:outline-none">
+        </div> -->
+        <!-- <centre>
+          <h2> Today's Environmental Tip 🌿</h2>
+        <p>{{ recommendation }}</p>
+        <p>end</p>
+        </centre> -->
+
+
+
+
+
+
+
+
+
+          <!-- <div id="chatbot-container">
+    <h3 id="chatbot-title">EcoBot 🌿</h3>
+    <div id="chat-window"></div>
+    <div>
+      <input type="text" id="user-input" placeholder="Ask me about eco tips...">
+      <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+  </div> -->
+ 

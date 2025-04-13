@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts and Material Icons -->
+
+<style>
+  
+  /* ===================================
+   Color Palette Variables (Green Theme)
+====================================== */
+:root {
+  --primary-green: #2e7d32;
+  --light-green: #e0f5e9;
+  --accent-green: #66bb6a;
+  --hover-green: #c8e6c9;
+  --background: #f5fff7;
+  --white: #ffffff;
+  --text-color: #333;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================
+   Global Styles
+====================================== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+h1, h2, h3 {
+  color: var(--primary-green);
+}
+
+/* ===================================
+   Sidebar
+====================================== */
+.eco-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 60px;
+  background-color: var(--light-green);
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 1000;
+}
+
+.eco-sidebar:hover {
+  width: 200px;
+}
+
+.eco-sidebar .nav-item {
+  padding: 15px 10px;
+  color: var(--primary-green);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.eco-sidebar .nav-item:hover {
+  background-color: var(--hover-green);
+  color: var(--primary-green);
+}
+
+.eco-sidebar .nav-item:first-child {
+  width: 100% !important;
+  background-color: var(--accent-green);
+  color: white;
+  font-weight: bold;
+  justify-content: center;
+  border-bottom: 1px solid #c8e6c9;
+}
+
+.eco-sidebar .nav-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* ===================================
+   Main Content Area
+====================================== */
+.eco-main {
+  margin-left: 60px;
+  /* padding: 20px; */
+  transition: margin-left 0.3s ease;
+}
+
+.eco-sidebar:hover ~ .eco-main {
+  margin-left: 200px;
+}
+
+/* ===================================
+   Cards Layout
+====================================== */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px var(--shadow);
+  width: 250px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px var(--shadow);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: var(--primary-green);
+}
+
+.card p {
+  font-size: 14px;
+}
+
+/* ===================================
+   Rows & Sections
+====================================== */
+.row-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+/* ===================================
+   Quote Box
+====================================== */
+.quote-box {
+  background-color: var(--light-green);
+  border-left: 5px solid var(--accent-green);
+  padding: 20px;
+  font-style: italic;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* ===================================
+   Chat Box
+====================================== */
+.chat-box {
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--shadow);
+  padding: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+
+.chat-box p {
+  margin: 10px 0;
+  padding: 8px 12px;
+  border-radius: 15px;
+  background-color: var(--light-green);
+  max-width: 70%;
+}
+
+.chat-box p.user {
+  align-self: flex-end;
+  background-color: var(--accent-green);
+  color: white;
+}
+
+/* ===================================
+   Media Queries
+====================================== */
+@media (max-width: 768px) {
+  .eco-main {
+    margin-left: 60px;
+  }
+
+  .eco-sidebar:hover ~ .eco-main {
+    margin-left: 200px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .row-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+    /* Reset some basic styles
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .eco-container {
+  display: flex;
+}
+
+/* Sidebar */
+.eco-sidebar {
+  width: 60px;
+  background: #e0f5e9;
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+  height: 100vh;
+  position: fixed;
+}
+
+.eco-sidebar:hover {
+  width: 220px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.eco-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eco-sidebar .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1rem;
+  color: #2e7d32;
+}
+
+.eco-sidebar .nav-item {
+  padding: 1rem;
+  cursor: pointer;
+  color: #388e3c;
+  transition: background 0.2s ease;
+}
+
+.eco-sidebar .nav-item:hover,
+.eco-sidebar .nav-item.active {
+  background: #c8e6c9;
+  color: #1b5e20;
+}
+
+/* Main Dashboard */
+.eco-main {
+  margin-left: 60px;
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+  width: 100%;
+}
+
+.eco-sidebar:hover ~ .eco-main {
+  margin-left: 220px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.card h4 {
+  margin: 0;
+  color: #2e7d32;
+}
+
+.progress-bar {
+  background: #eee;
+  height: 8px;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+.progress-bar div {
+  height: 100%;
+  background: #66bb6a;
+  border-radius: 4px;
+}
+
+/* Row for calendar, quote, chat */
+.row-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.calendar, .quote-box, .chat-box {
+  flex: 1 1 300px;
+  background: white;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.badge {
+  background: #a5d6a7;
+  color: #1b5e20;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-left: 8px;
+}
+
+.quote-box blockquote {
+  margin: 0;
+  font-style: italic;
+  color: #4e6e5d;
+  font-size: 1rem;
+}
+
+.quote-box span {
+  display: block;
+  text-align: right;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Chat */
+.chat-box h5 {
+  margin-bottom: 0.5rem;
+}
+
+.chat-body {
+  background: #f1f8e9;
+  padding: 0.75rem;
+  height: 100px;
+  overflow-y: auto;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.chat-input {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px 0 0 8px;
+}
+
+.chat-input button {
+  background: #66bb6a;
+  border: none;
+  color: white;
+  padding: 0 1rem;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
+
+    body {
+      background-color: #f5fff7;
+      color: #2d3e2f;
+      line-height: 1.6;
+    }
+    
+    /* Navigation Bar */
+    nav {
+      background-color: #e6ffe9;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 128, 0, 0.1);
+    }
+
+    nav a {
+      color: #2f8132;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #1e4d1e;
+    }
+
+    /* Header Section */
+
+
+
+
+    /* Section Style (About, Mission, etc.) */
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #2f8132;
+      margin-bottom: 1rem;
+      border-left: 6px solid #86d18e;
+      padding-left: 1rem;
+    }
+
+    section p {
+      color: #3f4f40;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Buttons */
+    button,
+    .btn {
+      background-color: #4caf50;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover,
+    .btn:hover {
+      background-color: #3d9143;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #e6ffe9;
+      text-align: center;
+      padding: 2rem;
+      color: #4b604c;
+      font-size: 0.9rem;
+      border-top: 1px solid #c6f1c7;
+    }
+
+    /* Optional: card layout for featured content */
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e0f5e2;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 12px rgba(46, 125, 50, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Consolidated and optimized CSS */
+    #chatbot-container {
+      border: 2px solid #4CAF50;
+      border-radius: 10px;
+      width: 450px;
+      /* Fixed width */
+      max-height: 600px;
+      /* Max height to prevent excessive expansion */
+      background-color: #f8fff9;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      background-color: #2E8B57;
+      border-radius: 8px 8px 0 0 !important;
+      padding: 12px 15px;
+      flex-shrink: 0;
+      /* Prevent header from shrinking */
+    }
+
+    #chat-window {
+      height: 400px;
+      /* Fixed height for messages area */
+      background-color: #ffffff;
+      /* White background for messages */
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      padding: 10px;
+      overflow-y:hidden; /**/
+      /* Auto-scroll when content overflows */
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-grow: 1;
+      /* Takes remaining space */
+    }
+
+    /* Initial prompt keeps gradient */
+    #initial-prompt {
+      cursor: pointer;
+      height: 100%;
+      min-height: 400px;
+      /* Match chat-window height */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #54e64184 0%, #3ce0d886 30%, #b8a1ffaf 70%, #ffdaff 100%);
+      border-radius: 5px;
+      margin: -10px;
+      overflow: hidden;
+    }
+
+    .message {
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 80%;
+      word-wrap: break-word;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+
+    .user-message {
+      background-color: #E1F5FE;
+      color: #01579B;
+      align-self: flex-end;
+      border-radius: 12px 12px 0 12px;
+      border: 1px solid #B3E5FC;
+    }
+
+    .bot-message {
+      background-color: #E8F5E9;
+      color: #1B5E20;
+      align-self: flex-start;
+      border-radius: 12px 12px 12px 0;
+      border: 1px solid #C8E6C9;
+    }
+
+    .input-group {
+      display: flex;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    #user-input {
+      flex: 1;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 8px 15px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    #user-input:focus {
+      border-color: #4CAF50;
+    }
+
+    #send-button {
+      background-color: #2E8B57;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 15px;
+      margin-left: 8px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      white-space: nowrap;
+    }
+
+    #send-button:hover {
+      background-color: #3CB371;
+    }
+
+    .text-muted {
+      font-size: 0.8rem;
+      margin-top: 8px;
+      color: #6c757d;
+    }
+
+
+    .ai-gradient-text {
+      background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 10px rgba(99, 102, 241, 0.2);
+      font-size: 2.5rem;
+      font-weight: 650;
+      margin-bottom: 0;
+    }
+
+    .quote-card {
+  background-color: #f7fdf6;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.quote-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2f4f2f;
+  margin-bottom: 15px;
+}
+
+.quote-box {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  border-left: 4px solid #7bc47f;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.quote-icon {
+  font-size: 20px;
+  color: #4caf50;
+  margin-top: 4px;
+}
+
+.quote-content {
+  flex: 1;
+}
+
+.quote-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.quote-author {
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+} */
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="eco-container">
+    <!-- Sidebar -->
+    <div class="eco-sidebar">
+      <ul>
+        <li class="logo">🌱 EcoLife</li>
+        <li class="nav-item active">Dashboard</li>
+        <li class="nav-item">Chatbot</li>
+        <li class="nav-item">Streak</li>
+        <li class="nav-item">Eco Facts</li>
+        <li class="nav-item">Quiz & Polls</li>
+        <li class="nav-item">Community</li>
+        <li class="nav-item">Challenges</li>
+        <li class="nav-item">Partners</li>
+        <li class="nav-item">Contact Us</li>
+        <li class="nav-item">Contribute</li>
+      </ul>
+    </div>
+  
+    <!-- Main Dashboard -->
+    <div class="eco-main">
+      <div class="cards">
+        <div class="card">
+          <h4>Carbon Saved</h4>
+          <p>25kg</p>
+          <small>You’re in top 20% of users</small>
+          <div class="progress-bar"><div style="width: 68%"></div></div>
+        </div>
+        <div class="card">
+          <h4>Water Saved</h4>
+          <p>145L</p>
+          <small>12% increase from last month</small>
+          <div class="progress-bar"><div style="width: 45%"></div></div>
+        </div>
+        <div class="card">
+          <h4>Green Energy</h4>
+          <p>78kWh</p>
+          <small>From renewable sources</small>
+          <div class="progress-bar"><div style="width: 52%"></div></div>
+        </div>
+        <div class="card">
+          <h4>Solar Impact</h4>
+          <p>35kWh</p>
+          <small>Energy from solar sources</small>
+          <div class="progress-bar"><div style="width: 30%"></div></div>
+        </div>
+      </div>
+  
+      <!-- Calendar and Quote Row -->
+      <div class="row-section">
+        <div class="calendar">
+          <h5>Your Eco Streak <span class="badge">4 Day Streak</span></h5>
+          <div class="calendar-box">
+            <!-- You can plug in a calendar plugin or image here -->
+            <p><strong>April 2025</strong></p>
+            <p>[Calendar UI Placeholder]</p>
+          </div>
+        </div>
+  
+        <!-- QUOTE BOX: You can paste this anywhere you want -->
+        <div class="quote-box">
+          <h5>📌Daily Eco Quote</h5>
+          <blockquote>
+            “The environment is where we all meet; where we all have a mutual interest; it is the one thing all of us share.”
+            <br><span>— Lady Bird Johnson</span>
+          </blockquote>
+        </div>
+  
+        <div class="chat-box">
+          <h5>EcoAssistant</h5>
+          <div class="chat-body">
+            <p><strong>EA:</strong> Hello! I’m your eco assistant. Ask me anything about sustainable living or get tips on reducing your carbon footprint.</p>
+          </div>
+          <div class="chat-input">
+            <input type="text" placeholder="Ask a question..." />
+            <button>➤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <div id="chatbot-container">
+    <h3 id="chatbot-title">EcoBot 🌿</h3>
+    <div id="chat-window"></div>
+    <div>
+      <input type="text" id="user-input" placeholder="Ask me about eco tips...">
+      <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+  </div> -->
+  <center>
+    <div class="result">
+        <h3>Your Daily Streak:</h3>
+        <p>{{ streak }} day(s) 🔥</p>
+    </div>
+</center>
+
+  
+  <div class="flex min-h-screen bg-gray-50 font-sans">
+    <!-- Sidebar -->
+    <!-- Sidebar Container -->
+
+    <!-- <aside class="w-64 bg-white border-r shadow-md flex flex-col justify-between p-4">
+      <div> -->
+        <!-- Logo -->
+        <!-- <div class="flex items-center space-x-2 mb-8 text-green-600 font-bold text-xl">
+          <span class="text-2xl">🟢</span>
+          <span>EcoLife</span>
+        </div> -->
+
+        <!-- Search (optional) -->
+        <!-- <div class="mb-4">
+          <input type="text" placeholder="Search..."
+            class="w-full px-3 py-2 rounded-md bg-gray-100 text-sm focus:outline-none">
+        </div> -->
+        <!-- <centre>
+          <h2> Today's Environmental Tip 🌿</h2>
+        <p>{{ recommendation }}</p>
+        <p>end</p>
+        </centre> -->
+        <br><br><br><br>
+          <button onclick="gotoquiz()">Quiz</button>
+          <button onclick="gotostats()">Stats</button>
+        </div>
+
+        
+
+        <!-- Navigation Menu
+        <nav class="space-y-2 text-gray-700 font-medium text-sm">
+          <a href="#" class="flex items-center p-2 rounded-lg bg-green-100 text-green-700 font-semibold">
+            <span class="material-icons mr-3">dashboard</span> Dashboard
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">chat</span> Chatbot
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">whatshot</span> Streak
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">eco</span> Eco Facts
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">quiz</span> Quiz & Polls
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">group</span> Community
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">flag</span> Challenges
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">handshake</span> Partners
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">mail_outline</span> Contact Us
+          </a>
+          <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
+            <span class="material-icons mr-3">volunteer_activism</span> Contribute
+          </a>
+        </nav>
+      </div> -->
+
+      
+
+      <!-- Bottom impact card -->
+      <div class="text-sm bg-gray-100 p-3 rounded mt-6">
+        <p class="font-semibold text-gray-800">Your Eco Impact</p>
+        <p class="text-xs text-gray-600 mt-1">You’ve saved <strong>25kg CO2</strong> this month. Keep going!</p>
+      </div>
+    </aside>
+
+    <div class="ml-[60px] transition-all duration-300 page-content" id="contentBelow"></div>
+    <!-- Main Dashboard Content (right side) -->
+    <div class="flex-1 p-6">
+      <!-- Paste the rest of your dashboard content here -->
+      <h1 class="text-xl font-bold">Welcome back, Alex! 👋</h1>
+      <!-- Additional dashboard content -->
+    </div>
+  </div>
+
+  <div id="chatbot-container" class="card shadow-sm">
+    <div class="card-header bg-success text-white">
+      <h5 class="mb-0">EcoAssistant <span class="badge bg-light text-success">EA</span></h5>
+    </div>
+    <div class="card-body">
+      <div id="chat-window" class="mb-3">
+        <div id="initial-prompt">
+          <h2 class="ai-gradient-text">Ask Assistant</h2>
+        </div>
+      </div>
+      <div class="input-group">
+        <input type="text" id="user-input" class="form-control" placeholder="Ask me about sustainable living..."
+          autocomplete="off">
+        <button id="send-button" class="btn btn-success">
+          <i class="bi bi-send"></i>
+        </button>
+      </div>
+      <!-- <small class="text-muted">Hello! I'm your eco assistant. Ask me anything about sustainable living or get tips on reducing your carbon footprint.</small> -->
+    </div>
+  </div>
+</div>
+
+  <!-- <center>
+    <h1>Carbon Footprint Calculator</h1>
+    <form method="POST" action="/predict/">
+      {% csrf_token %}
+      
+      Daily Electricity Usage (kWh): 
+      <input type="number" name="electricity" step="0.1" min="0" required><br><br>
+  
+      Daily Car Travel (km): 
+      <input type="number" name="car_km" step="0.1" min="0" required><br><br>
+  
+      Meat Meals per Week: 
+      <input type="number" name="meat_meals" min="0" required><br><br>
+  
+      Flights per Year: 
+      <input type="number" name="flights" min="0" required><br><br>
+  
+      <button type="submit">Submit</button>
+    </form>
+  </center>
+   -->
+  <br><br><br><br><br>
+  <!--just to differentiate-->
+
+
+  <!-- Trigger Button -->
+  <div class="text-center my-4" id="carbon-section">
+    <button id="toggleCalculatorBtn" class="btn btn-primary">
+      <i class="bi bi-calculator"></i> Calculate Your Carbon Footprint
+    </button>
+  </div>
+
+
+  <div id="calculatorSection" style="display:none" class="carbon-calculator py-5 bg-success-subtle calculator-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-sm border-0 overflow-hidden">
+            <div class="card-header bg-success text-white py-3">
+              <h1 class="h3 mb-0 text-center">
+                <i class="bi bi-calculator me-2"></i> Carbon Footprint Calculator
+              </h1>
+            </div>
+            <div class="card-body p-4 p-md-5">
+              <p class="text-muted text-center mb-4">
+                Calculate your environmental impact and discover ways to reduce your carbon footprint
+              </p>
+
+              <form method="POST" action="/predict/" class="needs-validation" novalidate>
+                {% csrf_token %}
+
+                <!-- Electricity Usage-->
+                <div class="mb-4">
+                  <label for="electricity" class="form-label">
+                    <i class="bi bi-lightning-charge-fill text-warning me-2"></i>
+                    Daily Electricity Usage (kWh)
+                  </label>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="electricity" name="electricity" step="0.1" min="0"
+                      required>
+                    <span class="input-group-text">kWh/day</span>
+                  </div>
+                  <div class="form-text">Average household uses 20-30 kWh/day</div>
+                </div>
+
+                <!-- Car Travel -->
+                <div class="mb-4">
+                  <label for="car_km" class="form-label">
+                    <i class="bi bi-car-front-fill text-primary me-2"></i>
+                    Daily Car Travel Distance
+                  </label>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="car_km" name="car_km" step="0.1" min="0" required>
+                    <span class="input-group-text">km/day</span>
+                  </div>
+                  <div class="form-text">Consider carpooling or public transport to reduce</div>
+                </div>
+
+                <!-- Meat Consumption -->
+                <div class="mb-4">
+                  <label for="meat_meals" class="form-label">
+                    <i class="bi bi-egg-fill text-danger me-2"></i>
+                    Meat-Based Meals per Week
+                  </label>
+                  <input type="number" class="form-control" id="meat_meals" name="meat_meals" min="0" required>
+                  <div class="form-text">Each vegetarian meal reduces your footprint by ~1.5kg CO₂</div>
+                </div>
+
+                <!-- Flights -->
+                <div class="mb-4">
+                  <label for="flights" class="form-label">
+                    <i class="bi bi-airplane-fill text-info me-2"></i>
+                    Short-Haul Flights per Year
+                  </label>
+                  <input type="number" class="form-control" id="flights" name="flights" min="0" required>
+                  <div class="form-text">A single round-trip flight emits ~0.5 tons CO₂</div>
+                </div>
+
+                <div class="d-grid mt-4">
+                  <button type="submit" class="btn btn-success btn-lg py-3">
+                    <i class="bi bi-calculator-fill me-2"></i> Calculate My Footprint
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="card-footer bg-light text-center py-3">
+              <small class="text-muted">
+                <i class="bi bi-info-circle me-1"></i>
+                Your data is used solely for calculation and never stored
+              </small>
+            </div>
+          </div>
+
+          <div class="text-center mt-4">
+            <button class="btn btn-outline-success btn-sm" type="button" data-bs-toggle="collapse"
+              data-bs-target="#calculatorTips">
+              <i class="bi bi-lightbulb me-1"></i> Tips for Reducing Your Footprint
+            </button>
+            <div class="collapse mt-3" id="calculatorTips">
+              <div class="card card-body bg-light border border-success">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Switch to LED bulbs (saves
+                    ~75% electricity)</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Walk/bike for trips under
+                    3km</li>
+                  <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Try meatless Mondays</li>
+                  <li><i class="bi bi-check-circle-fill text-success me-2"></i> Choose video conferences over short
+                    flights</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="resultModalLabel"><i class="bi bi-patch-check-fill me-2"></i> Calculation Complete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h4 class="text-success">Your Carbon Footprint has been calculated!</h4>
+        <p>Please scroll down to see your sustainability stats.</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  <!-- 
+<div>
+  <center>
+    <h1>Your Sustainability Stats</h1>
+    {% if score %}
+    <h2>Your Carbon Footprint Score: {{ score }}</h2>
+    <p>{{ recommendation }}</p>
+    <p>Average Score Till Now: {{ average_score }}</p>
+    <p>{{ comparison }}</p>
+     {% endif %}
+     <form action="{% url 'reset_data' %}" method="post">
+       {% csrf_token %}
+       <button type="submit" style="background-color: red; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+           Reset
+  </button>
+</form>
+
+  </center>
+</div> -->
+
+
+  <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="resultModalLabel">
+            <i class="bi bi-patch-check-fill me-2"></i> Calculation Complete
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body text-center">
+
+          {% if score %}
+          <h4 class="text-success">Your Carbon Footprint has been calculated!</h4>
+          <p class="mb-4">See your sustainability stats below:</p>
+
+          <div class="bg-light border rounded p-3 text-start">
+            <h5 class="text-center text-success mb-3">Your Sustainability Stats</h5>
+            <p><strong>Carbon Footprint Score:</strong> {{ score }}</p>
+            <p><strong>Recommendation:</strong> {{ recommendation }}</p>
+            <p><strong>Average Score:</strong> {{ average_score }}</p>
+            <p><strong>Comparison:</strong> {{ comparison }}</p>
+
+            <form action="{% url 'reset_data' %}" method="post" class="mt-3 text-center">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+              </button>
+            </form>
+          </div>
+
+          {% else %}
+          <h4 class="text-muted">Please calculate your carbon footprint first.</h4>
+          {% endif %}
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {% if score %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+      resultModal.show();
+    });
+  </script>
+  {% endif %}
+
+
+
+  <div class="quote-card">
+    <h2>Daily Eco Quote</h2>
+    {% if random_quote %}
+      <div class="quote-box">
+        <div class="quote-icon">💡</div>
+        <div class="quote-content">
+          <p class="quote-text">"{{ random_quote.text }}"</p>
+          {% if random_quote.author %}
+          <p class="quote-author">— {{ random_quote.author }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% else %}
+      <p class="quote-fallback">No quotes available.</p>
+    {% endif %}
+  </div>
+  
+  
+
+
+
+  <br><br><br><br><br>
+  
+
+
+
+
+  <!-- Bootstrap JS (for collapses, modals, etc.) -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+     function gotoquiz(){
+       window.location.href = `{% url 'quiz' %}`;
+    }
+     function gotostats(){
+       window.location.href = `{% url 'stats' %}`;
+    }
+    
+
+
+function checkScroll() {
+  const chatWindow = document.getElementById('chat-window');
+  if (chatWindow.scrollHeight > chatWindow.clientHeight) {
+    chatWindow.style.overflowY = 'auto'; // Show scrollbar only when needed
+  } else {
+    chatWindow.style.overflowY = 'hidden';
+  }
+}
+    document.addEventListener('DOMContentLoaded', function () {
+      const userInput = document.getElementById('user-input');
+      const chatWindow = document.getElementById('chat-window');
+      const initialPrompt = document.getElementById('initial-prompt');
+      const sendButton = document.getElementById('send-button');
+
+      // Function to add message to chat
+      function addMessage(text, isUser) {
+        if (initialPrompt && chatWindow.contains(initialPrompt)) {
+          initialPrompt.remove();
+        }
+
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        messageDiv.innerHTML = `<strong>${isUser ? 'You:' : 'EcoAssistant:'}</strong> ${text}`;
+
+        if (isUser) {
+          messageDiv.style.alignSelf = 'flex-end';
+        } else {
+          messageDiv.style.alignSelf = 'flex-start';
+        }
+
+        chatWindow.appendChild(messageDiv);
+        checkScroll();
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+        
+
+      }
+
+      // Function to handle sending message
+      function sendMessage() {
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        addMessage(message, true);
+        userInput.value = '';
+        userInput.focus();
+
+         
+        fetch('/chatbot/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: message })
+        })
+        .then(response => response.json())
+        .then(data => addMessage(data.reply, false))
+        .catch(error => {
+            console.error('Error:', error);
+            addMessage("Sorry, I encountered an error. Please try again.", false);
+        });
+        
+      }
+
+      // Event listeners
+      sendButton.addEventListener('click', sendMessage);
+      userInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') sendMessage();
+      });
+
+      initialPrompt?.addEventListener('click', function () {
+        userInput.focus();
+      });
+    });
+
+
+    document.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = this;
+      setTimeout(() => {
+        const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+        resultModal.show();
+        form.submit();
+      }, 300);
+    });
+
+    const toggleBtn = document.getElementById("toggleCalculatorBtn");
+    const calculatorSection = document.getElementById("calculatorSection");
+
+    toggleBtn.addEventListener("click", () => {
+      const isVisible = calculatorSection.style.display === "block";
+
+      if (isVisible) {
+        calculatorSection.style.display = "none";
+        toggleBtn.innerHTML = '<i class="bi bi-calculator"></i> Calculate Your Carbon Footprint';
+      } else {
+        calculatorSection.style.display = "block";
+        toggleBtn.innerHTML = '<i class="bi bi-x-circle-fill"></i> Close';
+
+        window.scrollTo({ top: calculatorSection.offsetTop - 20, behavior: "smooth" });
+      }
+    });
+
+  </script>
+</body>
+
+</html>
