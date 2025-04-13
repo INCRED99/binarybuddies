@@ -17,26 +17,58 @@ def stats_page(request):
     return render(request, 'stats.html')
 
 # Prediction Logic
+
+@csrf_exempt
 def predict(request):
     if request.method == 'POST':
-        electricity = float(request.POST['electricity'])
-        car_km = float(request.POST['car_km'])
-        meat_meals = float(request.POST['meat_meals'])
-        flights = float(request.POST['flights'])
+        # Get the form data
+        electricity = float(request.POST.get('electricity', 0))
+        car_km = float(request.POST.get('car_km', 0))
+        meat_meals = float(request.POST.get('meat_meals', 0))
+        flights = float(request.POST.get('flights', 0))
 
-        # Load model (we will create this model soon!)
-        model = joblib.load('main/ml_model.pkl')
-        data = np.array([[electricity, car_km, meat_meals, flights]])
-        score = model.predict(data)[0]
+        # Simple calculation (example model)
+        score = (electricity * 0.5) + (car_km * 0.3) + (meat_meals * 2) + (flights * 5)
 
-        if score > 50:
-            recommendation = "High impact detected! Try reducing travel and energy usage."
+        # Recommendations based on score
+        if score < 10:
+            recommendation = "Excellent! Keep it up!"
+        elif score < 20:
+            recommendation = "Good, but there is room for improvement."
         else:
-            recommendation = "Good job! Keep maintaining your sustainable habits."
+            recommendation = "Try to reduce your footprint!"
 
-        return render(request, 'stats.html', {'score': score, 'recommendation': recommendation})
-    else:
-        return render(request, 'home.html')
+        # Render home page with the results
+        return render(request, 'home.html', {
+            'score': round(score, 2),
+            'recommendation': recommendation
+        })
+    
+    # If GET request or something else, redirect to home
+    return render(request, 'home.html')
+
+
+
+# def predict(request):
+#     if request.method == 'POST':
+#         electricity = float(request.POST['electricity'])
+#         car_km = float(request.POST['car_km'])
+#         meat_meals = float(request.POST['meat_meals'])
+#         flights = float(request.POST['flights'])
+
+#         # Load model (we will create this model soon!)
+#         model = joblib.load('main/ml_model.pkl')
+#         data = np.array([[electricity, car_km, meat_meals, flights]])
+#         score = model.predict(data)[0]
+
+#         if score > 50:
+#             recommendation = "High impact detected! Try reducing travel and energy usage."
+#         else:
+#             recommendation = "Good job! Keep maintaining your sustainable habits."
+
+#         return render(request, 'stats.html', {'score': score, 'recommendation': recommendation})
+#     else:
+#         return render(request, 'home.html')
 
 
 

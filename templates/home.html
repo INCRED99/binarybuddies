@@ -10,7 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    #chatbot-container {
+     #chatbot-container {
       border: 2px solid #4CAF50;
       border-radius: 10px;
       padding: 15px;
@@ -66,23 +66,169 @@
     }
     #send-button:hover {
       background-color: #45a049;
+    } 
+  
+/* Updated CSS with better message colors */
+#chatbot-container {
+    border: 2px solid #4CAF50 !important;
+    border-radius: 10px !important;
+    width: 350px;
+    background-color: #f8fff9 !important; /* Lighter background */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    margin: 0 auto;
+}
+
+.card-header {
+    background-color: #2E8B57 !important; /* Darker green for header */
+    border-radius: 8px 8px 0 0 !important;
+}
+
+#chat-window {
+    height: 250px;
+    background-color: #ffffff !important;
+    border: 1px solid #e0e0e0 !important; /* Lighter border */
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    display: flex;
+    margin-bottom: 0;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 80%;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+}
+
+.user-message {
+    background-color: #E1F5FE !important; /* Light blue background */
+    color: #01579B !important; /* Dark blue text */
+    align-self: flex-end;
+    border-radius: 12px 12px 0 12px !important;
+    border: 1px solid #B3E5FC !important; /* Light blue border */
+}
+
+.bot-message {
+    background-color: #E8F5E9 !important; /* Light green background */
+    color: #1B5E20 !important; /* Dark green text */
+    align-self: flex-start;
+    border-radius: 12px 12px 12px 0 !important;
+    border: 1px solid #C8E6C9 !important; /* Light green border */
+}
+
+#user-input {
+    border: 1px solid #ccc !important;
+    border-radius: 20px !important; /* Rounded input */
+    padding: 8px 15px !important;
+}
+
+#send-button {
+    background-color: #2E8B57 !important; /* Matching header color */
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 8px 20px !important;
+    margin-left: 8px !important;
+}
+
+#send-button:hover {
+    background-color: #3CB371 !important; /* Brighter green on hover */
+}
+
+/* Message typography */
+.message strong {
+    font-weight: 600;
+}
+#initial-prompt {
+    cursor: pointer;
+    background: linear-gradient(135deg, #54e641 0%, #3ce0d8 30%, #b8a1ff 70%, #ffdaff 100%);
+    border-radius: 5px;
+    margin: -10px; /* Offset the chat-window padding */
+   
+    transition: all 0.3s ease;
+}
+
+.initial-prompt-content {
+    background-color: rgba(0,0,0,0.1);
+
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+#initial-prompt:hover .initial-prompt-content {
+    transform: scale(1.05);
+}
+
+/* Keep all your existing styles below */
+#chatbot-container {
+    border: 2px solid #4CAF50 !important;
+    border-radius: 10px !important;
+    width: 350px;
+    background-color: #f8fff9 !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    margin: 0 auto;
+}
+
+
+.gradient-text {
+        background: linear-gradient(135deg, #cb409f 0%, #ff95cf 50%, #d67cff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
+
+    /* Modern AI Gradient Text */
+.ai-gradient-text {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(99, 102, 241, 0.2);
+}
+
   </style>
 </head>
 <body>
   <h1>Welcome to Home Page</h1>
   <button onclick="gotostats()">Stats</button>
 
-  <div id="chatbot-container">
+  <!-- <div id="chatbot-container">
     <h3 id="chatbot-title">EcoBot 🌿</h3>
     <div id="chat-window"></div>
     <div>
       <input type="text" id="user-input" placeholder="Ask me about eco tips...">
       <button id="send-button" onclick="sendMessage()">Send</button>
     </div>
-  </div>
+  </div> -->
 
-  <center>
+  <div id="chatbot-container" class="card shadow-sm">
+    <div class="card-header bg-success text-white">
+        <h5 class="mb-0">EcoAssistant <span class="badge bg-light text-success">EA</span></h5>
+    </div>
+    <div class="card-body">
+      <div id="chat-window" class="mb-3" style="height: 300px; overflow-y: auto;">
+        <!-- Initial prompt with modern AI gradient -->
+        <div id="initial-prompt" class="h-100 d-flex flex-column align-items-center justify-content-center">
+            <h2 class="ai-gradient-text mb-0" style="font-size: 2.5rem; font-weight: 650;">Ask Assistant</h2>
+            
+        </div>
+    </div>
+        <div class="input-group">
+            <input type="text" id="user-input" class="form-control" placeholder="Ask me about sustainable living...">
+            <button id="send-button" class="btn btn-success" onclick="sendMessage()">
+                <i class="bi bi-send"></i> Send
+            </button>
+        </div>
+        <small class="text-muted mt-2 d-block">Hello! I'm your eco assistant. Ask me anything about sustainable living or get tips on reducing your carbon footprint.</small>
+    </div>
+</div>
+
+  <!-- <center>
     <h1>Carbon Footprint Calculator</h1>
     <form method="POST" action="/predict/">
       {% csrf_token %}
@@ -102,8 +248,9 @@
       <button type="submit">Submit</button>
     </form>
   </center>
-  
-<br><br><br><br><br><!--just to differentiate-->
+   -->
+<br><br><br><br><br>
+<!--just to differentiate-->
 
 <div class="carbon-calculator py-5 bg-success-subtle">
   <div class="container">
@@ -130,7 +277,7 @@
                   Daily Electricity Usage (kWh)
                 </label>
                 <div class="input-group">
-                  <input type="number" class="form-control" id="electricity" name="electricity" step="0.1" required>
+                  <input type="number" class="form-control" id="electricity" name="electricity" step="0.1" min="0" required>
                   <span class="input-group-text">kWh/day</span>
                 </div>
                 <div class="form-text">Average household uses 20-30 kWh/day</div>
@@ -143,7 +290,7 @@
                   Daily Car Travel Distance
                 </label>
                 <div class="input-group">
-                  <input type="number" class="form-control" id="car_km" name="car_km" step="0.1" required>
+                  <input type="number" class="form-control" id="car_km" name="car_km"  step="0.1" min="0" required>
                   <span class="input-group-text">km/day</span>
                 </div>
                 <div class="form-text">Consider carpooling or public transport to reduce</div>
@@ -155,7 +302,7 @@
                   <i class="bi bi-egg-fill text-danger me-2"></i>
                   Meat-Based Meals per Week
                 </label>
-                <input type="number" class="form-control" id="meat_meals" name="meat_meals" required>
+                <input type="number" class="form-control" id="meat_meals" name="meat_meals" min="0" required>
                 <div class="form-text">Each vegetarian meal reduces your footprint by ~1.5kg CO₂</div>
               </div>
               
@@ -165,7 +312,7 @@
                   <i class="bi bi-airplane-fill text-info me-2"></i>
                   Short-Haul Flights per Year
                 </label>
-                <input type="number" class="form-control" id="flights" name="flights" required>
+                <input type="number" class="form-control" id="flights" name="flights" min="0" required>
                 <div class="form-text">A single round-trip flight emits ~0.5 tons CO₂</div>
               </div>
               
@@ -205,53 +352,133 @@
     </div>
   </div>
 </div>
+<div>
+  <center>
+    {% if score %}
+    <h1>Your Sustainability Stats</h1>
+    <p>Carbon Score: {{ score }}</p>
+    <p>Recommendation: {{ recommendation }}</p>
+  {% endif %}
+  </center>
+</div>
 
 
 
 <!-- Bootstrap JS (for collapses, modals, etc.) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<!--do not change below code-->
   <script>
     function gotostats(){
        window.location.href = `{% url 'stats' %}`;
     }
+
+
+    // function sendMessage1() {
+    //   const userInputElement = document.getElementById('user-input');
+    //   const userInput = userInputElement.value.trim();
+    //   const chatWindow = document.getElementById('chat-window');
+
+    //   if (!userInput) return;
+
+    //   // Append the user's message
+    //   const userMessageDiv = document.createElement('div');
+    //   userMessageDiv.classList.add('message', 'user-message');
+    //   userMessageDiv.innerHTML = `<strong>You:</strong> ${userInput}`;
+    //   chatWindow.appendChild(userMessageDiv);
+
+    //   // Send a POST request to the /chatbot/ URL
+    //   fetch('/chatbot/', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ message: userInput }),
+    //   })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       // Append the bot's reply
+    //       const botMessageDiv = document.createElement('div');
+    //       botMessageDiv.classList.add('message', 'bot-message');
+    //       botMessageDiv.innerHTML = `<strong>EcoBot:</strong> ${data.reply}`;
+    //       chatWindow.appendChild(botMessageDiv);
+
+    //       chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the latest message
+    //     })
+    //     .catch(error => {
+    //       console.error('Error:', error);
+    //     });
+
+    //   userInputElement.value = '';  // Clear the input after sending the message
+    // }
+
     function sendMessage() {
-      const userInputElement = document.getElementById('user-input');
-      const userInput = userInputElement.value.trim();
-      const chatWindow = document.getElementById('chat-window');
-
-      if (!userInput) return;
-
-      // Append the user's message
-      const userMessageDiv = document.createElement('div');
-      userMessageDiv.classList.add('message', 'user-message');
-      userMessageDiv.innerHTML = `<strong>You:</strong> ${userInput}`;
-      chatWindow.appendChild(userMessageDiv);
-
-      // Send a POST request to the /chatbot/ URL
-      fetch('/chatbot/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: userInput }),
-      })
-        .then(response => response.json())
-        .then(data => {
-          // Append the bot's reply
-          const botMessageDiv = document.createElement('div');
-          botMessageDiv.classList.add('message', 'bot-message');
-          botMessageDiv.innerHTML = `<strong>EcoBot:</strong> ${data.reply}`;
-          chatWindow.appendChild(botMessageDiv);
-
-          chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the latest message
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-
-      userInputElement.value = '';  // Clear the input after sending the message
+    const userInput = document.getElementById('user-input');
+    const message = userInput.value.trim();
+    const chatWindow = document.getElementById('chat-window');
+    const initialPrompt = document.getElementById('initial-prompt');
+    
+    if (!message) return;
+    
+    // Remove initial prompt on first message
+    if (initialPrompt) {
+        initialPrompt.remove();
     }
+    
+    // Add user message
+    chatWindow.innerHTML += `
+        <div class="d-flex justify-content-end mb-2">
+            <div class="bg-primary text-white rounded p-2">
+                <strong>You:</strong> ${message}
+            </div>
+        </div>
+    `;
+    
+    // Clear input
+    userInput.value = '';
+    
+    // Fetch bot response
+    fetch('/chatbot/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Add bot response
+        chatWindow.innerHTML += `
+            <div class="d-flex justify-content-start mb-2">
+                <div class="bg-light border rounded p-2">
+                    <strong>EcoAssistant:</strong> ${data.reply}
+                </div>
+            </div>
+        `;
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Optional: Make the initial prompt clickable to focus the input
+document.getElementById('initial-prompt')?.addEventListener('click', function() {
+    document.getElementById('user-input').focus();
+});
+// Allow sending message with Enter key
+document.getElementById('user-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') sendMessage();
+});
+
+ (() => {
+  'use strict'
+  const forms = document.querySelectorAll('.needs-validation')
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      form.classList.add('was-validated')
+    }, false)
+  })
+})() 
   </script>
 </body>
 </html>
