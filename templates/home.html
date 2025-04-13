@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    #chatbot-container {
+      border: 2px solid #4CAF50;
+      border-radius: 10px;
+      padding: 15px;
+      width: 350px;
+      background-color: #f0fff4;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 0 auto;
+    }
+    #chatbot-title {
+      margin-top: 0;
+      text-align: center;
+    }
+    #chat-window {
+      height: 250px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #ffffff;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .message {
+      display: flex;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+    .user-message {
+      background-color: #d1f1ff;
+      align-self: flex-end;
+      border-radius: 10px 10px 0 10px;
+    }
+    .bot-message {
+      background-color: #e2e2e2;
+      align-self: flex-start;
+      border-radius: 10px 10px 10px 0;
+    }
+    #user-input {
+      width: 70%;
+      padding: 5px;
+      margin-right: 10px;
+    }
+    #send-button {
+      padding: 6px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #send-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Home Page</h1>
+  <button onclick="gotostats()">Stats</button>
+
+  <div id="chatbot-container">
+    <h3 id="chatbot-title">EcoBot 🌿</h3>
+    <div id="chat-window"></div>
+    <div>
+      <input type="text" id="user-input" placeholder="Ask me about eco tips...">
+      <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function gotostats(){
+       window.location.href = `{% url 'stats' %}`;
+    }
+    function sendMessage() {
+      const userInputElement = document.getElementById('user-input');
+      const userInput = userInputElement.value.trim();
+      const chatWindow = document.getElementById('chat-window');
+
+      if (!userInput) return;
+
+      // Append the user's message
+      const userMessageDiv = document.createElement('div');
+      userMessageDiv.classList.add('message', 'user-message');
+      userMessageDiv.innerHTML = `<strong>You:</strong> ${userInput}`;
+      chatWindow.appendChild(userMessageDiv);
+
+      // Send a POST request to the /chatbot/ URL
+      fetch('/chatbot/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userInput }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Append the bot's reply
+          const botMessageDiv = document.createElement('div');
+          botMessageDiv.classList.add('message', 'bot-message');
+          botMessageDiv.innerHTML = `<strong>EcoBot:</strong> ${data.reply}`;
+          chatWindow.appendChild(botMessageDiv);
+
+          chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll to the latest message
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+      userInputElement.value = '';  // Clear the input after sending the message
+    }
+  </script>
+</body>
+</html>
