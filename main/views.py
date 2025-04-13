@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+import numpy as np
+import joblib  # we'll save and load model like this
 
 # Landing page view
 def landing_page(request):
@@ -13,6 +15,82 @@ def home_page(request):
 
 def stats_page(request):
     return render(request, 'stats.html')
+
+# Prediction Logic
+def predict(request):
+    if request.method == 'POST':
+        electricity = float(request.POST['electricity'])
+        car_km = float(request.POST['car_km'])
+        meat_meals = float(request.POST['meat_meals'])
+        flights = float(request.POST['flights'])
+
+        # Load model (we will create this model soon!)
+        model = joblib.load('main/ml_model.pkl')
+        data = np.array([[electricity, car_km, meat_meals, flights]])
+        score = model.predict(data)[0]
+
+        if score > 50:
+            recommendation = "High impact detected! Try reducing travel and energy usage."
+        else:
+            recommendation = "Good job! Keep maintaining your sustainable habits."
+
+        return render(request, 'stats.html', {'score': score, 'recommendation': recommendation})
+    else:
+        return render(request, 'home.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Chatbot view (handle POST requests)
 @csrf_exempt  # Disable CSRF protection for the chatbot endpoint (temporary for testing)

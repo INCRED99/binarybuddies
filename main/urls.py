@@ -6,4 +6,5 @@ urlpatterns = [
     path('home/', views.home_page, name='home'),   # This will serve the home page
     path('stats/', views.stats_page, name='stats'),   # This will serve the home page
     path('chatbot/', views.chatbot, name='chatbot'),  # Add this line to handle the chatbot endpoint
+    path('predict/', views.predict, name='predict'),
 ]
