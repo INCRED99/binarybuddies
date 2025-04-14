@@ -430,7 +430,7 @@
 
 
 <!-- Collective Impact Section -->
-<div class="py-5" style="background-color: #f0f8ec;">
+<div class="py-5" style="background-color: #f0f8ec;" id="impact-section">
   <div class="container text-center">
     <h3 class="fw-bold mb-3">Our Collective Impact</h3>
     <p class="text-muted mb-5">
@@ -438,19 +438,19 @@
     </p>
     <div class="row gy-4">
       <div class="col-6 col-md-3">
-        <h2 class="fw-bold text-success">5,243,678kg</h2>
+        <h2 class="fw-bold text-success counter" data-target="5243678">0 kg</h2>
         <p class="text-muted mb-0">Kg of CO₂ Saved</p>
       </div>
       <div class="col-6 col-md-3">
-        <h2 class="fw-bold text-success">267,594</h2>
+        <h2 class="fw-bold text-success counter" data-target="267594">0</h2>
         <p class="text-muted mb-0">Trees Virtually Planted</p>
       </div>
       <div class="col-6 col-md-3">
-        <h2 class="fw-bold text-success">45,628+</h2>
+        <h2 class="fw-bold text-success counter" data-target="45628">0</h2>
         <p class="text-muted mb-0">Active Users</p>
       </div>
       <div class="col-6 col-md-3">
-        <h2 class="fw-bold text-success">1,253,976</h2>
+        <h2 class="fw-bold text-success counter" data-target="1253976">0</h2>
         <p class="text-muted mb-0">Sustainable Actions Taken</p>
       </div>
     </div>
@@ -546,7 +546,6 @@
        window.location.href = `{% url 'community' %}`;
     }
 
-
     function openPopup() {
       // console.log("opened popup")
       document.getElementById('loginPopup').style.display = 'block';
@@ -572,6 +571,46 @@
       window.location.href = "/stats";
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+  const counters = document.querySelectorAll('.counter');
+  const duration = 1000; // 200ms animation duration
+  let animationStarted = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animationStarted) {
+        animationStarted = true;
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          const suffix = counter.textContent.match(/[^0-9]+$/)?.[0] || ''; // preserve + or kg
+          const start = 0;
+          const startTime = performance.now();
+          
+          const animate = (currentTime) => {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const currentValue = Math.floor(progress * target);
+            
+            // Format number with commas
+            const formattedValue = currentValue.toLocaleString();
+            counter.textContent = formattedValue + suffix;
+            
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              // Ensure final value is exact
+              counter.textContent = target.toLocaleString() + suffix;
+            }
+          };
+          
+          requestAnimationFrame(animate);
+        });
+      }
+    });
+  }, { threshold: 0.6 }); // Trigger when 50% of the section is visible
+
+  observer.observe(document.getElementById('impact-section'));
+  });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
   </script>

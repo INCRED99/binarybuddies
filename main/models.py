@@ -5,20 +5,6 @@ from django.utils import timezone
 
 
 
-# class PollQuestion(models.Model):
-#     question = models.CharField(max_length=255)
-
-#     def __str__(self):
-#         return self.question
-
-# class PollOption(models.Model):
-#     question = models.ForeignKey(PollQuestion, on_delete=models.CASCADE)
-#     option_text = models.CharField(max_length=255)
-#     votes = models.IntegerField(default=0)
-
-#     def __str__(self):
-#         return f"{self.option_text} ({self.votes} votes)"
-
 
 class Footprint(models.Model):
     electricity = models.FloatField()

@@ -10,6 +10,7 @@ from django.utils import timezone
 from .models import Streak
 from datetime import timedelta
 import logging
+from django.shortcuts import render, redirect
 import csv
 import os
 from django.shortcuts import render
@@ -327,6 +328,8 @@ def home(request):
         'random_quote': random_quote,
         'streak': streak,
     })
+
+    return render(request, 'poll.html', {'forms': forms, 'results': results})
 
 
 

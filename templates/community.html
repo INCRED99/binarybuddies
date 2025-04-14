@@ -1,6 +1,6 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -166,7 +166,6 @@
   </style>
 </head>
 <body>
-  <img src="{% static 'images/image.png' %}" alt="Community Image">
   <div class="container">
       <div class="d-flex justify-content-between align-items-center mb-5">
         <div class="logo">🌿 GreenTrack</div>
@@ -196,17 +195,7 @@
         </nav>
       </div>
    
-  
 
-  <!--
-  Featured
-  Open Source
-  Collaborators Map
-  Upcoming
-  Leaderboard
-
-
--->
     <div class="d-flex flex-column justify-content-center align-items-center">
       <h2>Community Hub</h2>
       <p>Connect with like-minded individuals, share your sustainability journey, and join the conversation.</p>
@@ -227,7 +216,6 @@
       </div>
     </div>
     
-    <!-- Preserved Member Comments -->
     <div class="card">
       <div class="name">Aisha Patel</div>
       <div class="username">@earthly_aisha</div>
@@ -284,12 +272,2055 @@
     });
   });
   </script>
+ 
+</body>
+</html> -->
+
+
+<!-- new -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GreenTrack Community Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      user-select: none;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9fbf9;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header .logo {
+      font-weight: bold;
+      color: #217a40;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: #1b5e20;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: #444;
+      margin: 20px 0 10px;
+    }
+
+    .section-title::before {
+      /* content: '📢'; */
+      margin-right: 8px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #dfe5de;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .card .name {
+      font-weight: bold;
+    }
+
+    .card .username {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .tags span {
+      display: inline-block;
+      background: #e0f3e7;
+      color: #217a40;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      margin-right: 6px;
+      margin-top: 6px;
+    }
+
+    .reply-count {
+      font-size: 14px;
+      color: #888;
+      margin-top: 8px;
+    }
+
+    .footer-card {
+      background: #eaf5ec;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .footer-card h3 {
+      color: #2b6e3b;
+      margin-bottom: 10px;
+    }
+
+    .footer-card button {
+      padding: 10px 20px;
+      background-color: #1b8a3b;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .footer-card p {
+      color: #555;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+
+    .form-control:focus{border-color: #1b8a3b;}
+
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #28a745;
+      text-transform: uppercase;
+    }
+
+    /* Reduce navbar height */
+    .navbar {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    /* Remove background color from buttons */
+    .navbar-nav .nav-link {
+      background-color: transparent;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #495057;
+      padding: 8px 15px;
+    }
+
+    /* Hover effect for button's container */
+    .navbar-nav .nav-item:hover {
+      background-color: #e9f7e5;
+      border-radius: 5px;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #28a745;
+    }
+    .navbar-nav .nav-link.active {
+      background-color: #28a745;
+      color: white !important;
+      border-radius: 5px;
+    }
+    .navbar-toggler-icon {
+      background-color: #28a745;
+    }
+   
+
+
+
+    /* 9:43 */
+    /* Enhanced Card Styles for Community Section */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.tags span {
+  transition: background-color 0.2s ease;
+}
+
+.tags span:hover {
+  background-color: #c8e6d0;
+}
+
+/* Badge styles */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+}
+
+/* 9:53 */
+/* Add to your existing styles */
+/* Open Source Projects Section Styles */
+.card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(40, 167, 69, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(40, 167, 69, 0.1);
+  border-color: rgba(40, 167, 69, 0.3);
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+}
+
+.btn-outline-success {
+  transition: all 0.1s ease;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.list-unstyled li::before {
+  content: "•";
+  color: #28a745;
+  font-weight: bold;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+/* 10:00 */
+/* Collaborators Map Section Styles */
+#collaborators-map {
+  background-color: #f9fbf9;
+  border-radius: 12px;
+}
+
+.hover-shadow {
+  transition: all 0.1s ease;
+}
+
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(40, 167, 69, 0.1);
+}
+
+/* Country badge colors */
+.badge.bg-success {
+  background-color: rgba(40, 167, 69, 0.1) !important;
+  color: #28a745 !important;
+}
+
+.badge.bg-primary {
+  background-color: rgba(13, 110, 253, 0.1) !important;
+  color: #0d6efd !important;
+}
+
+.badge.bg-danger {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+  color: #dc3545 !important;
+}
+
+.badge.bg-info {
+  background-color: rgba(13, 202, 240, 0.1) !important;
+  color: #0dcaf0 !important;
+}
+
+/* Filter select styles */
+.form-select {
+  border-color: #dee2e6;
+  transition: all 0.1s ease;
+}
+
+.form-select:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+/* Map placeholder */
+#map-visualization {
+  transition: all 0.1s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #collaborators-map {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* 10:10 */
+/* Upcoming Events Section Styles */
+#upcoming-events {
+  background-color: #f9fbf9;
+  border-radius: 12px;
+}
+
+.nav-tabs {
+  border-bottom: 2px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+  color: #495057;
+  font-weight: 500;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #28a745;
+  border: none;
+}
+
+.nav-tabs .nav-link.active {
+  color: #28a745;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #28a745;
+}
+
+.event-card {
+  border: 1px solid rgba(40, 167, 69, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(40, 167, 69, 0.1);
+  border-color: rgba(40, 167, 69, 0.3);
+}
+
+.event-date {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-date .day {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.event-date .month {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.event-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border-radius: 50px;
+}
+
+/* Calendar View Styles */
+.calendar-view {
+  display: none;
+}
+
+.calendar-day {
+  border: 1px solid #dee2e6;
+  min-height: 120px;
+  padding: 0.5rem;
+}
+
+.calendar-day-header {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-event {
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  margin-bottom: 0.25rem;
+  background-color: rgba(40, 167, 69, 0.1);
+  border-radius: 4px;
+  color: #28a745;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-tabs .nav-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .event-date {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+
+
+/* 10:16 */
+/* Hall of Impact & Testimonials Styles */
+#hall-of-impact {
+  background-color: #f9fbf9;
+  border-radius: 12px;
+}
+
+/* Leaderboard Styles */
+.table-hover tbody tr:hover {
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+.table thead th {
+  border-bottom: 2px solid #dee2e6;
+  font-weight: 600;
+  color: #1b5e20;
+}
+
+/* Rank Badges */
+.rank-badge {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.rank-1 {
+  background-color: #ffd700;
+  color: #8a6d3b;
+}
+
+.rank-2 {
+  background-color: #c0c0c0;
+  color: #333;
+}
+
+.rank-3 {
+  background-color: #cd7f32;
+  color: #fff;
+}
+
+.rank-other {
+  background-color: #eaf5ec;
+  color: #28a745;
+}
+
+/* Contributor Avatar */
+.contributor-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+/* Badge Styles */
+.badge-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.badge-ai {
+  background-color: rgba(13, 110, 253, 0.1);
+  color: #0d6efd;
+}
+
+.badge-blockchain {
+  background-color: rgba(111, 66, 193, 0.1);
+  color: #6f42c1;
+}
+
+.badge-opensource {
+  background-color: rgba(33, 37, 41, 0.1);
+  color: #212529;
+}
+
+/* Testimonial Cards */
+blockquote {
+  position: relative;
+  padding-left: 1rem;
+  border-left: 3px solid #28a745;
+  font-style: italic;
+  color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: 0.85rem;
+  }
+  
+  .contributor-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .contributor-avatar {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
+
+/* 10:51 */
+.text-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.text-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(40, 167, 69, 0.2);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+
+
+
+.btn-success {
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+}
+  </style>
+</head>
+<body>
+
+  <!-- <img src="{% static 'images/image.png' %}" alt="Community Image"> -->
+<div class="container">
+
+
+<!-- NavBar -->
+<div class="d-flex justify-content-between align-items-center mb-5">
+      <div class="logo">🌿 GreenTrack</div>
+      <nav class="navbar navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto gap-3">
+            <li class="nav-item">
+              <button class="nav-link active nav-btns  px-3" type="button">Featured</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link nav-btns  px-3" type="button">Open Source</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link nav-btns  px-3" type="button">Collaborators Map</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link nav-btns  px-3" type="button">Upcoming</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link nav-btns  px-3" type="button">Leaderboard</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</div>
+
+<!-- hero section -->
+<div class="d-flex flex-column justify-content-center align-items-center">
+      <h2>Community Hub</h2>
+      <p>Connect with like-minded individuals, share your sustainability journey, and join the conversation.</p>
+      <div class="input-group mb-4 mt-3 position-relative" style="max-width: 600px;">
+        <input type="text" class="form-control shadow-sm pe-5" id="search-input"
+               placeholder="Search members, topics, tech tags..."
+               style="border-radius: 12px 0 0 12px;">
+        
+        <button class="btn btn-success" type="button" id="search-button" style="border-radius: 0 12px 12px 0;">
+          <i class="bi bi-search"></i>
+        </button>
+        
+        <button type="button" id="clear-button"
+          class="btn position-absolute end-0 top-0 me-5 border-0 bg-transparent"
+          style="z-index: 10; display: none;">
+          <i class="bi bi-x-circle-fill" style="color: #28a745; font-size: 1.2rem;"></i>
+        </button>
+      </div>
+</div>
+    
+<!--9:43 Featured Tech-for-Environment Communities Section -->
+<div id="featured-communities" class="container my-5">
+<div class="section-title">Featured Tech-for-Environment Communities</div>
+<div  class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+
+  <!-- Open Climate Fix -->
+  <div class="col">
+    <div class="card h-100">
+      <div class="name">Open Climate Fix</div>
+      <p class="mb-2">Using AI to reduce carbon emissions in energy</p>
+      <div class="tags">
+        <span>AI</span>
+        <span>Energy</span>
+        <span>Open Source</span>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <a href="https://openclimatefix.org" target="_blank" class="text-success text-decoration-none">
+          <i class="bi bi-link-45deg"></i> Visit Website
+        </a>
+        <span class="badge bg-success bg-opacity-10 text-success">Active Community</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hack4Climate -->
+  <div class="col">
+    <div class="card h-100">
+      <div class="name">Hack4Climate</div>
+      <p class="mb-2">Climate-focused hackathons and blockchain solutions</p>
+      <div class="tags">
+        <span>Blockchain</span>
+        <span>Hackathons</span>
+        <span>Innovation</span>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <a href="https://hack4climate.io" target="_blank" class="text-success text-decoration-none">
+          <i class="bi bi-link-45deg"></i> Visit Website
+        </a>
+        <span class="badge bg-success bg-opacity-10 text-success">Global Network</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech for Good -->
+  <div class="col">
+    <div class="card h-100">
+      <div class="name">Tech for Good (by GitHub)</div>
+      <p class="mb-2">List of open-source green tech projects</p>
+      <div class="tags">
+        <span>Open Source</span>
+        <span>GitHub</span>
+        <span>Projects</span>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <a href="https://github.com/techforgood" target="_blank" class="text-success text-decoration-none">
+          <i class="bi bi-link-45deg"></i> Visit GitHub
+        </a>
+        <span class="badge bg-success bg-opacity-10 text-success">500+ Projects</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ClimateAction.tech -->
+  <div class="col">
+    <div class="card h-100">
+      <div class="name">ClimateAction.tech</div>
+      <p class="mb-2">Global community of tech workers focused on climate action</p>
+      <div class="tags">
+        <span>Community</span>
+        <span>Tech Workers</span>
+        <span>Global</span>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <a href="https://climateaction.tech" target="_blank" class="text-success text-decoration-none">
+          <i class="bi bi-link-45deg"></i> Visit Website
+        </a>
+        <span class="badge bg-success bg-opacity-10 text-success">10k+ Members</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--9:52 -->
+<!-- Open Source Green Projects Section -->
+<div id="open-source-projects" class="container my-5">
+  
+  <div class="d-flex flex-column align-items-center mb-5">
+    <div class="position-relative text-center">
+      <h2 class="display-5 fw-bold text-success mb-0">Open Source</h2>
+      <div class="position-absolute bottom-0 start-50 translate-middle-x " style="width: 90%; height: 2px; background: linear-gradient(90deg, rgba(40,167,69,0.1), #6ca728, rgba(40,167,69,0.1));"></div>
+      
+    </div>
+    <p class="text-muted mt-3 mb-0 text-center">Discover impactful projects where your coding skills can make a difference for the planet</p>
+  </div>
+
+
+  <div  class="row row-cols-1 row-cols-lg-2 g-4">
+    <!-- Project 1: Open Climate Fix -->
+    <div class="col">
+      <div class="card h-100 border-success border-opacity-25">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="card-title text-success mb-0">Open Climate Fix</h5>
+            <span class="badge bg-success bg-opacity-10 text-success">Active</span>
+          </div>
+          <p class="card-text">Using AI to reduce carbon emissions in energy systems</p>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">Tech Stack</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">Python</span>
+              <span class="badge bg-light text-dark">Machine Learning</span>
+              <span class="badge bg-light text-dark">PyTorch</span>
+              <span class="badge bg-light text-dark">PostgreSQL</span>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">Impact Achieved</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">✓ Reduced energy waste by 15% in pilot projects</li>
+              <li class="mb-1">✓ 200+ contributors worldwide</li>
+              <li class="mb-1">✓ Used by UK National Grid</li>
+            </ul>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">How to Contribute</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">• Good first issues labeled for beginners</li>
+              <li class="mb-1">• Active Discord community</li>
+              <li class="mb-1">• Monthly onboarding calls</li>
+            </ul>
+          </div>
+          
+          <a href="https://github.com/openclimatefix" target="_blank" class="btn btn-outline-success mt-2">
+            <i class="bi bi-github"></i> Contribute on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: OpenAQ -->
+    <div class="col">
+      <div class="card h-100 border-success border-opacity-25">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="card-title text-success mb-0">OpenAQ</h5>
+            <span class="badge bg-success bg-opacity-10 text-success">Active</span>
+          </div>
+          <p class="card-text">Open air quality data platform fighting air inequality</p>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">Tech Stack</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">JavaScript</span>
+              <span class="badge bg-light text-dark">Node.js</span>
+              <span class="badge bg-light text-dark">React</span>
+              <span class="badge bg-light text-dark">PostgreSQL</span>
+              <span class="badge bg-light text-dark">GIS</span>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">Impact Achieved</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">✓ 100M+ air quality measurements</li>
+              <li class="mb-1">✓ Used by researchers in 50+ countries</li>
+              <li class="mb-1">✓ Influenced clean air policies</li>
+            </ul>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">How to Contribute</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">• Documentation improvements needed</li>
+              <li class="mb-1">• Data visualization challenges</li>
+              <li class="mb-1">• API enhancement opportunities</li>
+            </ul>
+          </div>
+          
+          <a href="https://github.com/openaq" target="_blank" class="btn btn-outline-success mt-2">
+            <i class="bi bi-github"></i> Contribute on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Project Drawdown -->
+    <div class="col">
+      <div class="card h-100 border-success border-opacity-25">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="card-title text-success mb-0">Project Drawdown</h5>
+            <span class="badge bg-success bg-opacity-10 text-success">Active</span>
+          </div>
+          <p class="card-text">Climate solutions research and analysis platform</p>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">Tech Stack</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">Python</span>
+              <span class="badge bg-light text-dark">Django</span>
+              <span class="badge bg-light text-dark">PostgreSQL</span>
+              <span class="badge bg-light text-dark">Data Science</span>
+              <span class="badge bg-light text-dark">Vue.js</span>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">Impact Achieved</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">✓ Cataloged 100+ climate solutions</li>
+              <li class="mb-1">✓ Influenced policy makers globally</li>
+              <li class="mb-1">✓ Educational resource for millions</li>
+            </ul>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">How to Contribute</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">• Data analysis tasks</li>
+              <li class="mb-1">• UI/UX improvements</li>
+              <li class="mb-1">• Translation opportunities</li>
+            </ul>
+          </div>
+          
+          <a href="https://github.com/projectdrawdown" target="_blank" class="btn btn-outline-success mt-2">
+            <i class="bi bi-github"></i> Contribute on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: WattTime -->
+    <div class="col">
+      <div class="card h-100 border-success border-opacity-25">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="card-title text-success mb-0">WattTime</h5>
+            <span class="badge bg-success bg-opacity-10 text-success">Active</span>
+          </div>
+          <p class="card-text">Enabling automated emissions reductions for energy users</p>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">Tech Stack</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-light text-dark">Python</span>
+              <span class="badge bg-light text-dark">IoT</span>
+              <span class="badge bg-light text-dark">APIs</span>
+              <span class="badge bg-light text-dark">Data Engineering</span>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">Impact Achieved</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">✓ Reduced emissions from energy use</li>
+              <li class="mb-1">✓ API used by major tech companies</li>
+              <li class="mb-1">✓ Real-time energy tracking</li>
+            </ul>
+          </div>
+          
+          <div class="mb-3">
+            <h6 class="text-muted mb-2">How to Contribute</h6>
+            <ul class="list-unstyled">
+              <li class="mb-1">• API client libraries needed</li>
+              <li class="mb-1">• Data pipeline improvements</li>
+              <li class="mb-1">• Documentation examples</li>
+            </ul>
+          </div>
+          
+          <a href="https://github.com/WattTime" target="_blank" class="btn btn-outline-success mt-2">
+            <i class="bi bi-github"></i> Contribute on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--10:00-->
+<!-- Collaborators Map Section -->
+<section id="collaborators-map" class="container my-5 py-4">
+  
+  <div class="d-flex flex-column align-items-center mb-5">
+    <div class="position-relative text-center">
+      <h2 class="display-5 fw-bold text-success mb-0">Global Collaborators</h2>
+      <div class="position-absolute bottom-0 start-50 translate-middle-x " style="width: 90%; height: 2px; background: linear-gradient(90deg, rgba(40,167,69,0.1), #6ca728, rgba(40,167,69,0.1));"></div>
+      
+    </div>
+    <p class="text-muted mt-3 mb-0 text-center">Connect with sustainability-focused tech communities around the world</p>
+  </div>
+
+
+
+  <!-- Filters -->
+  <div class="row mb-4 g-3">
+    <div class="col-md-4">
+      <select class="form-select" id="country-filter">
+        <option value="all">🌐 All Countries</option>
+        <option value="india">🇮🇳 India</option>
+        <option value="germany">🇩🇪 Germany</option>
+        <option value="usa">🇺🇸 USA</option>
+        <option value="uk">🇬🇧 UK</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <select class="form-select" id="tech-filter">
+        <option value="all">🛠️ All Tech Domains</option>
+        <option value="ai">AI/ML</option>
+        <option value="web">Web Development</option>
+        <option value="iot">IoT</option>
+        <option value="data">Data Science</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <select class="form-select" id="goal-filter">
+        <option value="all">🌱 All Climate Goals</option>
+        <option value="energy">Clean Energy</option>
+        <option value="agri">Sustainable Agriculture</option>
+        <option value="waste">Waste Reduction</option>
+        <option value="water">Water Conservation</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- Map Visualization Placeholder -->
+  <div class="card mb-4 border-success border-opacity-10">
+    <div class="card-body p-0">
+      <div id="map-visualization" class="d-flex align-items-center justify-content-center" style="height: 300px; background-color: #eaf5ec; border-radius: 8px;">
+        <div class="text-center p-4">
+          <i class="bi bi-globe-asia-australia" style="font-size: 3rem; color: #28a745;"></i>
+          <h5 class="mt-3 text-success">Interactive Map Coming Soon</h5>
+          <p class="text-muted">We're building a live map of all our collaborators</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Collaborators List -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="collaborators-list">
+    <!-- India Collaborators -->
+    <div class="col" data-country="india" data-tech="ai" data-goal="energy">
+      <div class="card h-100 border-success border-opacity-10 hover-shadow">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3">
+              <i class="bi bi-robot text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">Pune - GreenAI Circle</h5>
+              <span class="badge bg-success bg-opacity-10 text-success">India</span>
+            </div>
+          </div>
+          <p class="card-text">Developing AI solutions for optimizing solar energy distribution</p>
+          <div class="mb-3">
+            <span class="badge bg-light text-dark me-1">Python</span>
+            <span class="badge bg-light text-dark me-1">TensorFlow</span>
+            <span class="badge bg-light text-dark">Energy Data</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="text-success">🌱 Clean Energy</span>
+            <button class="btn btn-sm btn-outline-success">Connect</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col" data-country="india" data-tech="web" data-goal="waste">
+      <div class="card h-100 border-success border-opacity-10 hover-shadow">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3">
+              <i class="bi bi-recycle text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">Bangalore - EcoTech</h5>
+              <span class="badge bg-success bg-opacity-10 text-success">India</span>
+            </div>
+          </div>
+          <p class="card-text">Building platforms for urban waste management systems</p>
+          <div class="mb-3">
+            <span class="badge bg-light text-dark me-1">React</span>
+            <span class="badge bg-light text-dark me-1">Node.js</span>
+            <span class="badge bg-light text-dark">GIS</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="text-success">🌱 Waste Reduction</span>
+            <button class="btn btn-sm btn-outline-success">Connect</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col" data-country="india" data-tech="iot" data-goal="agri">
+      <div class="card h-100 border-success border-opacity-10 hover-shadow">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3">
+              <i class="bi bi-moisture text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">Hyderabad - AgriTech</h5>
+              <span class="badge bg-success bg-opacity-10 text-success">India</span>
+            </div>
+          </div>
+          <p class="card-text">IoT solutions for water-efficient agriculture</p>
+          <div class="mb-3">
+            <span class="badge bg-light text-dark me-1">IoT</span>
+            <span class="badge bg-light text-dark me-1">Arduino</span>
+            <span class="badge bg-light text-dark">Soil Sensors</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="text-success">🌱 Sustainable Agriculture</span>
+            <button class="btn btn-sm btn-outline-success">Connect</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- International Collaborators -->
+    <div class="col" data-country="germany" data-tech="ai" data-goal="energy">
+      <div class="card h-100 border-success border-opacity-10 hover-shadow">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3">
+              <i class="bi bi-lightning-charge text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">Berlin - EcoCoders</h5>
+              <span class="badge bg-primary bg-opacity-10 text-primary">Germany</span>
+            </div>
+          </div>
+          <p class="card-text">Open source tools for renewable energy optimization</p>
+          <div class="mb-3">
+            <span class="badge bg-light text-dark me-1">Python</span>
+            <span class="badge bg-light text-dark me-1">PyTorch</span>
+            <span class="badge bg-light text-dark">Energy Data</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="text-success">🌱 Clean Energy</span>
+            <button class="btn btn-sm btn-outline-success">Connect</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col" data-country="usa" data-tech="data" data-goal="water">
+      <div class="card h-100 border-success border-opacity-10 hover-shadow">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3">
+              <i class="bi bi-droplet text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">California - HydroTech</h5>
+              <span class="badge bg-primary bg-opacity-10 text-info">USA</span>
+            </div>
+          </div>
+          <p class="card-text">Data analytics for water conservation in urban areas</p>
+          <div class="mb-3">
+            <span class="badge bg-light text-dark me-1">Python</span>
+            <span class="badge bg-light text-dark me-1">Pandas</span>
+            <span class="badge bg-light text-dark">Water Data</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="text-success">🌱 Water Conservation</span>
+            <button class="btn btn-sm btn-outline-success">Connect</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col" data-country="uk" data-tech="web" data-goal="energy">
+      <div class="card h-100 border-success border-opacity-10 hover-shadow">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3">
+              <i class="bi bi-sun text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <h5 class="mb-0">London - SolarTech</h5>
+              <span class="badge bg-info bg-opacity-10 text-info">UK</span>
+            </div>
+          </div>
+          <p class="card-text">Community solar energy tracking platforms</p>
+          <div class="mb-3">
+            <span class="badge bg-light text-dark me-1">React</span>
+            <span class="badge bg-light text-dark me-1">Node.js</span>
+            <span class="badge bg-light text-dark">Energy API</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="text-success">🌱 Clean Energy</span>
+            <button class="btn btn-sm btn-outline-success">Connect</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- View More Button -->
+  <div class="text-center mt-4">
+    <button class="btn btn-success" id="load-more">
+      <i class="bi bi-arrow-down-circle"></i> Load More Collaborators
+    </button>
+  </div>
+</section>
+
+<!-- 10:10 -->
+ <!-- Upcoming Events Section -->
+<section id="upcoming-events" class="container my-5 py-4">
+  
+  <div class="d-flex flex-column align-items-center mb-5">
+    <div class="position-relative text-center">
+      <h2 class="display-5 fw-bold text-success mb-0">Upcoming Events</h2>
+      <div class="position-absolute bottom-0 start-50 translate-middle-x " style="width: 90%; height: 2px; background: linear-gradient(90deg, rgba(40,167,69,0.1), #6ca728, rgba(40,167,69,0.1));"></div>
+      
+    </div>
+    <p class="text-muted mt-3 mb-0 text-center">Join these exciting opportunities to collaborate, learn, and build solutions for our planet</p>
+  </div>
+
+
+  <!-- Event Tabs -->
+  <ul class="nav nav-tabs mb-4" id="eventsTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="hackathons-tab" data-bs-toggle="tab" data-bs-target="#hackathons" type="button" role="tab">
+        <i class="bi bi-code-slash me-2"></i>Hackathons
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="talks-tab" data-bs-toggle="tab" data-bs-target="#talks" type="button" role="tab">
+        <i class="bi bi-megaphone me-2"></i>Tech Talks
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="sprints-tab" data-bs-toggle="tab" data-bs-target="#sprints" type="button" role="tab">
+        <i class="bi bi-people me-2"></i>Contribution Sprints
+      </button>
+    </li>
+  </ul>
+  
+  <!-- Tab Content -->
+  <div class="tab-content" id="eventsTabContent">
+    <!-- Hackathons Tab -->
+    <div class="tab-pane fade show active" id="hackathons" role="tabpanel">
+      <div class="row row-cols-1 row-cols-md-2 g-4" id="hackathons-list">
+        <!-- Event cards will be loaded here by JavaScript -->
+      </div>
+    </div>
+    
+    <!-- Tech Talks Tab -->
+    <div class="tab-pane fade" id="talks" role="tabpanel">
+      <div class="row row-cols-1 row-cols-md-2 g-4" id="talks-list">
+        <!-- Event cards will be loaded here by JavaScript -->
+      </div>
+    </div>
+    
+    <!-- Contribution Sprints Tab -->
+    <div class="tab-pane fade" id="sprints" role="tabpanel">
+      <div class="row row-cols-1 row-cols-md-2 g-4" id="sprints-list">
+        <!-- Event cards will be loaded here by JavaScript -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Calendar View Toggle -->
+  <div class="text-center mt-4">
+    <button class="btn btn-outline-success" id="toggle-view">
+      <i class="bi bi-calendar-week"></i> Switch to Calendar View
+    </button>
+  </div>
+</section>
+
+<!-- 10:16 -->
+ <!-- Hall of Impact Section -->
+<section id="hall-of-impact" class="container my-5 py-4">
+
+  <!-- Enhanced Heading -->
+<div class="d-flex flex-column align-items-center mb-5">
+  <div class="position-relative text-center">
+    <h2 class="display-5 fw-bold text-success mb-0">Hall of Impact</h2>
+    <div class="position-absolute bottom-0 start-50 translate-middle-x " style="width: 100%; height: 2px; background: linear-gradient(90deg, rgba(40,167,69,0.1), #6ca728, rgba(40,167,69,0.1));"></div>
+    
+  </div>
+  <p class="text-muted mt-3 mb-0 text-center">Celebrating our top contributors making a difference</p>
+</div>
+  <!-- Leaderboard Filters -->
+  <div class="row mb-4 g-3">
+    <div class="col-md-6">
+      <select class="form-select" id="time-filter">
+        <option value="all-time">⭐ All Time Leaders</option>
+        <option value="monthly">🌱 This Month</option>
+        <option value="quarterly">🌍 This Quarter</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <select class="form-select" id="badge-filter">
+        <option value="all">🏆 All Badges</option>
+        <option value="ai">🤖 AI for Climate</option>
+        <option value="blockchain">⛓️ Blockchain for Green</option>
+        <option value="opensource">💻 Open Source Warrior</option>
+      </select>
+    </div>
+  </div>
+  
+  <!-- Leaderboard -->
+  <div class="card mb-5 border-success border-opacity-10">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="bg-success bg-opacity-10">
+            <tr>
+              <th scope="col" style="width: 50px">Rank</th>
+              <th scope="col">Contributor</th>
+              <th scope="col">Projects</th>
+              <th scope="col">Badges</th>
+              <th scope="col" class="text-end">Impact</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body">
+            <!-- Leaderboard rows will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+<!-- Badges Gallery - Fixed Version -->
+<div class="mb-5">
+  <h5 class="mb-3">Impact Badges</h5>
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+    <!-- AI for Climate Badge -->
+    <div class="col">
+      <div class="card border-success border-opacity-10 h-100 text-center p-3">
+        <div class="d-flex flex-column align-items-center">
+          <div class="bg-success bg-opacity-10 px-3 py-2 rounded-circle mb-3">
+            <i class="bi bi-robot text-success" style="font-size: 1.75rem;"></i>
+          </div>
+          <h6 class="mb-2">AI for Climate</h6>
+          <p class="small text-muted mb-0">For significant contributions to AI climate solutions</p>
+          <span class="badge rounded-pill bg-success bg-opacity-10 text-success mt-2 px-3 py-1">
+            <i class="bi bi-stars me-1"></i> 42 earned
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Blockchain for Green Badge -->
+    <div class="col">
+      <div class="card border-success border-opacity-10 h-100 text-center p-3">
+        <div class="d-flex flex-column align-items-center">
+          <div class="bg-success bg-opacity-10 px-3 py-2 rounded-circle mb-3">
+            <i class="bi bi-link-45deg text-success" style="font-size: 1.75rem;"></i>
+          </div>
+          <h6 class="mb-2">Blockchain for Green</h6>
+          <p class="small text-muted mb-0">For blockchain applications in sustainability</p>
+          <span class="badge rounded-pill bg-success bg-opacity-10 text-success mt-2 px-3 py-1">
+            <i class="bi bi-stars me-1"></i> 28 earned
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Open Source Warrior Badge -->
+    <div class="col">
+      <div class="card border-success border-opacity-10 h-100 text-center p-3">
+        <div class="d-flex flex-column align-items-center">
+          <div class="bg-success bg-opacity-10 px-3 py-2 rounded-circle mb-3">
+            <i class="bi bi-github text-success" style="font-size: 1.75rem;"></i>
+          </div>
+          <h6 class="mb-2">Open Source Warrior</h6>
+          <p class="small text-muted mb-0">For exceptional open source contributions</p>
+          <span class="badge rounded-pill bg-success bg-opacity-10 text-success mt-2 px-3 py-1">
+            <i class="bi bi-stars me-1"></i> 76 earned
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Carbon Reducer Badge -->
+    <div class="col">
+      <div class="card border-success border-opacity-10 h-100 text-center p-3">
+        <div class="d-flex flex-column align-items-center">
+          <div class="bg-success bg-opacity-10 px-3 py-2 rounded-circle mb-3">
+            <i class="bi bi-tree text-success" style="font-size: 1.75rem;"></i>
+          </div>
+          <h6 class="mb-2">Carbon Reducer</h6>
+          <p class="small text-muted mb-0">For measurable carbon reduction impact</p>
+          <span class="badge rounded-pill bg-success bg-opacity-10 text-success mt-2 px-3 py-1">
+            <i class="bi bi-stars me-1"></i> 93 earned
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <!-- Community Testimonials -->
+  
+  <div class="d-flex flex-column align-items-center mb-5">
+    
+      <h2 class="display-5 fw-bold text-success mb-0">Community Stories</h2>
+      
+    <p class="text-muted mt-3 mb-0 text-center">Hear from developers making an impact through technology</p>
+  </div>
+
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <!-- Testimonial 1 -->
+    <div class="col">
+      <div class="card h-100 border-success border-opacity-10">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success bg-opacity-10 d-flex align-items-center justify-content-center me-3" 
+                  style="width: 48px; height: 48px; border-radius: 50%;">
+                <i class="bi bi-person-circle text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <div class="name">Aisha Patel</div>
+              <div class="username">@earthly_aisha</div>
+            </div>
+          </div>
+          <blockquote class="mb-4">
+            "I never thought my frontend skills could help analyze forest data, until I joined this open source community. Now I'm building visualization tools that help protect endangered ecosystems."
+          </blockquote>
+          <div class="tags mb-3">
+            <span>Carbon Reducer</span>
+            <span>Energy Efficient</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="reply-count">Carbon reduced: <strong>267 kg</strong></div>
+            <div class="text-muted small">Member since Feb 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Testimonial 2 -->
+    <div class="col">
+      <div class="card h-100 border-success border-opacity-10">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3 ">
+            <div class="bg-success bg-opacity-10 d-flex align-items-center justify-content-center me-3" 
+              style="width: 48px; height: 48px; border-radius: 50%;">
+              <i class="bi bi-person-circle text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <div class="name">Sophia Chen</div>
+              <div class="username">@eco_sophia</div>
+            </div>
+          </div>
+          <blockquote class="mb-4">
+            "Through the GreenTrack community, I connected with a team building sustainable fashion tech. My API skills are now helping reduce textile waste in the fashion industry."
+          </blockquote>
+          <div class="tags mb-3">
+            <span>Top Contributor</span>
+            <span>Open Source Warrior</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="reply-count">Carbon reduced: <strong>298 kg</strong></div>
+            <div class="text-muted small">Member since Jan 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Testimonial 3 -->
+    <div class="col">
+      <div class="card h-100 border-success border-opacity-10">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success bg-opacity-10 d-flex align-items-center justify-content-center me-3" 
+              style="width: 48px; height: 48px; border-radius: 50%;">
+              <i class="bi bi-person-circle text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <div class="name">Raj Patel</div>
+              <div class="username">@solar_raj</div>
+            </div>
+          </div>
+          <blockquote class="mb-4">
+            "The AI for Climate badge motivated me to contribute my ML skills to solar forecasting projects. Seeing our work deployed by utilities is incredibly rewarding."
+          </blockquote>
+          <div class="tags mb-3">
+            <span>AI for Climate</span>
+            <span>Carbon Reducer</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="reply-count">Carbon reduced: <strong>412 kg</strong></div>
+            <div class="text-muted small">Member since Nov 2022</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Testimonial 4 -->
+    <div class="col">
+      <div class="card h-100 border-success border-opacity-10">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-success bg-opacity-10 d-flex align-items-center justify-content-center me-3" 
+              style="width: 48px; height: 48px; border-radius: 50%;">
+              <i class="bi bi-person-circle text-success" style="font-size: 1.5rem;"></i>
+            </div>
+            <div>
+              <div class="name">Priya Sharma</div>
+              <div class="username">@blockchain_priya</div>
+            </div>
+          </div>
+          <blockquote class="mb-4">
+            "I earned the Blockchain for Green badge by developing smart contracts for carbon credit tracking. This community helped me align my tech skills with my environmental values."
+          </blockquote>
+          <div class="tags mb-3">
+            <span>Blockchain for Green</span>
+            <span>Top Contributor</span>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="reply-count">Carbon reduced: <strong>385 kg</strong></div>
+            <div class="text-muted small">Member since Mar 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<div class="footer-card bg-success bg-opacity-10 border-0 rounded-4 p-5 text-center">
+  <div class="position-relative">
+    <h2 class="display-5 fw-bold text-success mb-4">
+      Join Green Community
+    </h2>
+    <!-- <div class="position-absolute bottom-0 start-50 translate-middle-x" style="width: 60%; height: 4px; background: linear-gradient(90deg, rgba(40,167,69,0.3), #28a745, rgba(40,167,69,0.3)); border-radius: 2px;"></div>
+   -->
+  </div>
+  
+  <p class="lead text-dark mb-4 mx-auto" style="max-width: 600px;">
+    Be part of the climate solution. Track your carbon reduction and get sustainable tips from our growing network.
+  </p>
+  
+  <div class="d-flex justify-content-center gap-3 mb-4">
+    <button class="btn btn-success btn-lg px-4 py-2 rounded-pill fw-semibold shadow-sm">
+      <i class="bi bi-people-fill me-2"></i> Join the Community
+    </button>
+    <button class="btn btn-outline-success btn-lg px-4 py-2 rounded-pill fw-semibold">
+      <i class="bi bi-info-circle me-2"></i> Learn More
+    </button>
+  </div>
+  
+  <div class="d-flex align-items-center justify-content-center gap-2 text-muted">
+    <div class="bg-white p-2 rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+      <i class="bi bi-people-fill text-success"></i>
+    </div>
+    <span class="fw-medium">
+      <span class="text-success fw-bold">2,845</span> members already reducing their impact
+    </span>
+  </div>
+</div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const input = document.getElementById('search-input');
+    const clearBtn = document.getElementById('clear-button');
+  
+    input.addEventListener('input', () => {
+      clearBtn.style.display = input.value ? 'block' : 'none';
+    });
+  
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      clearBtn.style.display = 'none';
+      input.focus();
+    });
+
+
+  //11:05
+  // Nav buttons scroll functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const navButtons = document.querySelectorAll('.nav-btns');
+    
+    // Map button text to section IDs
+    const sectionMap = {
+        'Featured': 'featured-communities', // You'll need to add id="featured-communities" to your Featured section
+        'Open Source': 'open-source-projects', // Add id="open-source-projects" to Open Source section
+        'Collaborators Map': 'collaborators-map', // Already has id
+        'Upcoming': 'upcoming-events', // Already has id
+        'Leaderboard': 'hall-of-impact' // Already has id
+    };
+    
+    navButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            navButtons.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get the section to scroll to
+            const sectionName = this.textContent.trim();
+            const sectionId = sectionMap[sectionName];
+            
+            if (sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+});
+  
+  //9:43
+  // Add smooth scrolling to all links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Add animation to cards when they come into view
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card').forEach(card => {
+  observer.observe(card);
+});
   
 
+//9:53
+// Add this to your existing script section
+document.addEventListener('DOMContentLoaded', function() {
+  // Add click animation to project cards
+  const projectCards = document.querySelectorAll('.card');
+  
+  projectCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Don't trigger if clicking on a link inside the card
+      if (e.target.tagName === 'A' || e.target.closest('a')) return;
+      
+      this.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 200);
+    });
+  });
+
+  // Animate cards when they come into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Set initial state and observe
+  projectCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(card);
+  });
+});
+  
+//10:00
+// Collaborators Filter and Interaction
+document.addEventListener('DOMContentLoaded', function() {
+  // Filter functionality
+  const countryFilter = document.getElementById('country-filter');
+  const techFilter = document.getElementById('tech-filter');
+  const goalFilter = document.getElementById('goal-filter');
+  const collaborators = document.querySelectorAll('#collaborators-list .col');
+  
+  function filterCollaborators() {
+    const countryValue = countryFilter.value;
+    const techValue = techFilter.value;
+    const goalValue = goalFilter.value;
+    
+    collaborators.forEach(collaborator => {
+      const countryMatch = countryValue === 'all' || collaborator.dataset.country === countryValue;
+      const techMatch = techValue === 'all' || collaborator.dataset.tech === techValue;
+      const goalMatch = goalValue === 'all' || collaborator.dataset.goal === goalValue;
+      
+      if (countryMatch && techMatch && goalMatch) {
+        collaborator.style.display = 'block';
+      } else {
+        collaborator.style.display = 'none';
+      }
+    });
+  }
+  
+  // Add event listeners to filters
+  countryFilter.addEventListener('change', filterCollaborators);
+  techFilter.addEventListener('change', filterCollaborators);
+  goalFilter.addEventListener('change', filterCollaborators);
+  
+  // Load more functionality
+  const loadMoreBtn = document.getElementById('load-more');
+  let visibleCount = 6; // Initial visible cards
+  
+  // Hide cards beyond initial count
+  collaborators.forEach((collab, index) => {
+    if (index >= visibleCount) {
+      collab.style.display = 'none';
+    }
+  });
+  
+  loadMoreBtn.addEventListener('click', function() {
+    visibleCount += 3;
+    
+    // Show next set of cards
+    collaborators.forEach((collab, index) => {
+      if (index < visibleCount) {
+        collab.style.display = 'block';
+      }
+    });
+    
+    // Hide button if all cards are visible
+    if (visibleCount >= collaborators.length) {
+      loadMoreBtn.style.display = 'none';
+    }
+  });
+  
+  // Connect button animation
+  document.querySelectorAll('.btn-outline-success').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const originalText = this.innerHTML;
+      this.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Connecting...';
+      
+      setTimeout(() => {
+        this.innerHTML = '<i class="bi bi-check-circle"></i> Connected';
+        this.classList.remove('btn-outline-success');
+        this.classList.add('btn-success');
+      }, 1500);
+    });
+  });
+  
+  // Initial filter to show India first (priority)
+  countryFilter.value = 'india';
+  filterCollaborators();
+});
+
+// 10:10
+// Upcoming Events Data and Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Sample event data (in real implementation, this could come from an API)
+  const eventsData = {
+    hackathons: [
+      {
+        id: 1,
+        title: "Climate Hack 2023",
+        description: "48-hour hackathon focused on building solutions for carbon footprint reduction",
+        date: "2023-11-15",
+        location: "Virtual (Global)",
+        tags: ["Climate Tech", "Open Source"],
+        link: "#",
+        organizer: "GreenTech Foundation"
+      },
+      {
+        id: 2,
+        title: "AI for Earth Challenge",
+        description: "Build AI models to solve pressing environmental problems",
+        date: "2023-12-05",
+        location: "Bangalore, India",
+        tags: ["AI/ML", "Sustainability"],
+        link: "#",
+        organizer: "EcoAI Collective"
+      },
+      {
+        id: 3,
+        title: "Urban Sustainability Hack",
+        description: "Develop solutions for smart, sustainable cities",
+        date: "2024-01-20",
+        location: "Hybrid (Delhi & Online)",
+        tags: ["Smart Cities", "IoT"],
+        link: "#",
+        organizer: "Urban Green Initiative"
+      }
+    ],
+    talks: [
+      {
+        id: 4,
+        title: "The Future of Renewable Tech",
+        description: "Panel discussion with industry leaders on emerging renewable technologies",
+        date: "2023-11-22",
+        location: "Online",
+        tags: ["Renewable Energy", "Panel"],
+        link: "#",
+        organizer: "Clean Energy Forum"
+      },
+      {
+        id: 5,
+        title: "Blockchain for Carbon Markets",
+        description: "How blockchain technology is transforming carbon credit systems",
+        date: "2023-12-08",
+        location: "Mumbai, India",
+        tags: ["Blockchain", "Carbon Credits"],
+        link: "#",
+        organizer: "Digital Green"
+      }
+    ],
+    sprints: [
+      {
+        id: 6,
+        title: "GSoC Prep Workshop",
+        description: "Prepare for Google Summer of Code with open source climate projects",
+        date: "2023-11-30",
+        location: "Online",
+        tags: ["GSoC", "Workshop"],
+        link: "#",
+        organizer: "Open Climate Collective"
+      },
+      {
+        id: 7,
+        title: "MLH Earth Day Hack",
+        description: "Contribution sprint for environmental open source projects",
+        date: "2024-04-22",
+        location: "Global",
+        tags: ["MLH", "Earth Day"],
+        link: "#",
+        organizer: "Major League Hacking"
+      },
+      {
+        id: 8,
+        title: "OpenAQ Contribution Day",
+        description: "Help improve the open air quality data platform",
+        date: "2023-12-12",
+        location: "Virtual",
+        tags: ["Open Source", "Data"],
+        link: "#",
+        organizer: "OpenAQ"
+      }
+    ]
+  };
+
+  // Function to create event cards
+  function createEventCard(event) {
+    const eventDate = new Date(event.date);
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+    return `
+      <div class="col">
+        <div class="card event-card h-100">
+          <div class="card-body">
+            <div class="d-flex mb-3">
+              <div class="event-date me-3">
+                <div class="day">${eventDate.getDate()}</div>
+                <div class="month">${monthNames[eventDate.getMonth()]}</div>
+              </div>
+              <div>
+                <h5 class="card-title mb-1">${event.title}</h5>
+                <p class="text-muted small mb-2">by ${event.organizer}</p>
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  ${event.tags.map(tag => `<span class="event-tag">${tag}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+            <p class="card-text">${event.description}</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="text-muted small"><i class="bi bi-geo-alt"></i> ${event.location}</span>
+              <a href="${event.link}" class="btn btn-sm btn-success">Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Function to load events into the DOM
+  function loadEvents() {
+    const hackathonsList = document.getElementById('hackathons-list');
+    const talksList = document.getElementById('talks-list');
+    const sprintsList = document.getElementById('sprints-list');
+    
+    // Clear existing content
+    hackathonsList.innerHTML = '';
+    talksList.innerHTML = '';
+    sprintsList.innerHTML = '';
+    
+    // Add hackathons
+    eventsData.hackathons.forEach(event => {
+      hackathonsList.innerHTML += createEventCard(event);
+    });
+    
+    // Add talks
+    eventsData.talks.forEach(event => {
+      talksList.innerHTML += createEventCard(event);
+    });
+    
+    // Add sprints
+    eventsData.sprints.forEach(event => {
+      sprintsList.innerHTML += createEventCard(event);
+    });
+  }
+
+  // Initialize events
+  loadEvents();
+
+  // Calendar View Toggle
+  const toggleViewBtn = document.getElementById('toggle-view');
+  const listView = document.getElementById('eventsTabContent');
+  const calendarView = document.createElement('div');
+  calendarView.className = 'calendar-view';
+  calendarView.innerHTML = `
+    <div class="calendar-container mt-3">
+      <div class="row g-0">
+        <div class="col border calendar-day">
+          <div class="calendar-day-header">Sun</div>
+        </div>
+        <div class="col border calendar-day">
+          <div class="calendar-day-header">Mon</div>
+        </div>
+        <div class="col border calendar-day">
+          <div class="calendar-day-header">Tue</div>
+        </div>
+        <div class="col border calendar-day">
+          <div class="calendar-day-header">Wed</div>
+        </div>
+        <div class="col border calendar-day">
+          <div class="calendar-day-header">Thu</div>
+        </div>
+        <div class="col border calendar-day">
+          <div class="calendar-day-header">Fri</div>
+        </div>
+        <div class="col border calendar-day">
+          <div class="calendar-day-header">Sat</div>
+        </div>
+      </div>
+      <!-- Calendar rows would be generated here in a complete implementation -->
+    </div>
+  `;
+  
+  listView.parentNode.insertBefore(calendarView, listView.nextSibling);
+  
+  let isCalendarView = false;
+  toggleViewBtn.addEventListener('click', function() {
+    isCalendarView = !isCalendarView;
+    
+    if (isCalendarView) {
+      listView.style.display = 'none';
+      calendarView.style.display = 'block';
+      this.innerHTML = '<i class="bi bi-card-list"></i> Switch to List View';
+    } else {
+      listView.style.display = 'block';
+      calendarView.style.display = 'none';
+      this.innerHTML = '<i class="bi bi-calendar-week"></i> Switch to Calendar View';
+    }
+  });
+
+  // In a complete implementation, you would:
+  // 1. Fetch events from an API instead of using sample data
+  // 2. Generate a proper calendar view with events placed on correct dates
+  // 3. Add pagination or "Load More" functionality for many events
+  // 4. Implement event search/filter functionality
+});
+
+//10:16
+// Hall of Impact & Testimonials Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Sample leaderboard data
+  const leaderboardData = [
+    {
+      rank: 1,
+      name: "Sophia Chen",
+      username: "@eco_sophia",
+      avatar: "https://i.pravatar.cc/150?img=1",
+      projects: ["FashionFootprint", "EcoSupplyChain"],
+      badges: [
+        { type: "opensource", label: "Open Source Warrior" },
+        { type: "ai", label: "AI for Climate" }
+      ],
+      impact: "298 kg CO₂ reduced",
+      joined: "Jan 2023"
+    },
+    {
+      rank: 2,
+      name: "Raj Patel",
+      username: "@solar_raj",
+      avatar: "https://i.pravatar.cc/150?img=5",
+      projects: ["SolarForecast", "GreenGrid"],
+      badges: [
+        { type: "ai", label: "AI for Climate" },
+        { type: "blockchain", label: "Blockchain for Green" }
+      ],
+      impact: "412 kg CO₂ reduced",
+      joined: "Nov 2022"
+    },
+    {
+      rank: 3,
+      name: "Priya Sharma",
+      username: "@blockchain_priya",
+      avatar: "https://i.pravatar.cc/150?img=6",
+      projects: ["CarbonChain", "EcoLedger"],
+      badges: [
+        { type: "blockchain", label: "Blockchain for Green" }
+      ],
+      impact: "385 kg CO₂ reduced",
+      joined: "Mar 2023"
+    },
+    {
+      rank: 4,
+      name: "Aisha Patel",
+      username: "@earthly_aisha",
+      avatar: "https://i.pravatar.cc/150?img=2",
+      projects: ["ForestGuard", "EcoVisual"],
+      badges: [
+        { type: "opensource", label: "Open Source Warrior" }
+      ],
+      impact: "267 kg CO₂ reduced",
+      joined: "Feb 2023"
+    },
+    {
+      rank: 5,
+      name: "Carlos Mendez",
+      username: "@wind_carlos",
+      avatar: "https://i.pravatar.cc/150?img=9",
+      projects: ["WindOpt", "TurbineAI"],
+      badges: [
+        { type: "ai", label: "AI for Climate" }
+      ],
+      impact: "245 kg CO₂ reduced",
+      joined: "Apr 2023"
+    }
+  ];
+
+  // Function to render leaderboard
+  function renderLeaderboard(data) {
+    const tbody = document.getElementById('leaderboard-body');
+    tbody.innerHTML = '';
+    
+    data.forEach(user => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>
+          <div class="rank-badge ${user.rank <= 3 ? `rank-${user.rank}` : 'rank-other'}">
+            ${user.rank}
+          </div>
+        </td>
+        <td>
+          <div class="d-flex align-items-center">
+            <img src="${user.avatar}" alt="${user.name}" class="contributor-avatar">
+            <div>
+              <div class="fw-semibold">${user.name}</div>
+              <div class="text-muted small">${user.username}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="d-flex flex-wrap gap-1">
+            ${user.projects.map(project => `<span class="badge bg-light text-dark">${project}</span>`).join('')}
+          </div>
+        </td>
+        <td>
+          <div class="d-flex flex-wrap gap-1">
+            ${user.badges.map(badge => `
+              <span class="badge ${`badge-${badge.type}`}">
+                <span class="badge-icon">${badge.label.charAt(0)}</span>
+                ${badge.label}
+              </span>
+            `).join('')}
+          </div>
+        </td>
+        <td class="text-end fw-semibold text-success">
+          ${user.impact}
+        </td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+
+  // Initial render
+  renderLeaderboard(leaderboardData);
+
+  // Filter functionality
+  const timeFilter = document.getElementById('time-filter');
+  const badgeFilter = document.getElementById('badge-filter');
+  
+  function applyFilters() {
+    const timeValue = timeFilter.value;
+    const badgeValue = badgeFilter.value;
+    
+    let filteredData = [...leaderboardData];
+    
+    // In a real implementation, you would fetch filtered data from the server
+    // This is just a client-side simulation
+    if (badgeValue !== 'all') {
+      filteredData = filteredData.filter(user => 
+        user.badges.some(badge => badge.type === badgeValue)
+      );
+    }
+    
+    renderLeaderboard(filteredData);
+  }
+  
+  timeFilter.addEventListener('change', applyFilters);
+  badgeFilter.addEventListener('change', applyFilters);
+
+  // Testimonial carousel functionality
+  // (Would be implemented if you want rotating testimonials)
+});
 
 
-
-
-
+  </script>
 </body>
 </html>

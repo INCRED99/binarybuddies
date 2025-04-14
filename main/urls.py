@@ -11,5 +11,4 @@ urlpatterns = [
     path('chatbot/', views.chatbot, name='chatbot'),
     path('quiz/', views.quiz_view, name='quiz'),
     path('community/', views.community_page, name='community'),
-    #path('pole/', views.pole_page, name='pole'),
 ]
