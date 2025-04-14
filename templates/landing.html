@@ -1,15 +1,23 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Eco Bird</title>
+  <title>EcoLife</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
     body {
+      padding-top: 2em;
+      user-select: none;
       font-family: 'Poppins', Arial, sans-serif;
       background: linear-gradient(135deg, #9be15d 0%, transparent 40%),
                   linear-gradient(225deg, #9be15d 0%, transparent 40%);
@@ -18,6 +26,46 @@
       min-height: 100vh;
 
     }
+    .youtube-background-container {
+
+  height: 130vh; 
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 40px;
+  /* position: relative;
+  width: 100%;
+  height: 450px;/
+  overflow: hidden; */
+}
+
+.youtube-video {
+  
+  position: absolute;
+  top: -31%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.youtube-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding-top: 120px;
+  background: rgba(0, 0, 0, 0);
+}
+
+
+
 
     /* Navbar */
     #navbar {
@@ -260,42 +308,144 @@
   .footer-divider {
       border-top: 1px solid #14532d; /* green-900 */
   }
+
+/* Trigger area (Eco Bird logo) */
+.eco-trigger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  cursor: pointer;
+}
+.eco-logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: #dff0d8;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Side Panel */
+.side-panel {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #f1fdf2;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: all 0.4s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.side-panel ul li {
+  padding: 12px 5px;
+  font-size: 1rem;
+  color: #2e7d32;
+  display: flex;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+  border-radius: 8px;
+}
+
+.side-panel ul li:hover {
+  background-color: #d0f0d3;
+  padding-left: 12px;
+}
+
+.side-panel ul li i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* Eco impact box at the bottom */
+.eco-impact-box {
+  margin-top: 40px;
+  background-color: #e6f9eb;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #2e7d32;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top w-100 border-bottom border-success border-1">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Eco Bird</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+   <!-- Side Panel Trigger Area -->
+<div class="eco-trigger" onmouseover="showSidePanel()" onmouseout="hideSidePanel()">
+  <div class="eco-logo "><img src="{% static 'images/logo.png' %}" alt="Description" width="40em" height="40em"> EcoLife</div>
+</div>
+
+<!-- Side Panel -->
+<div class="side-panel" id="ecoSidePanel" onmouseover="showSidePanel()" onmouseout="hideSidePanel()">
+  <ul class="side-options list-unstyled">
+    <li></li>
+    <li></li>
+    <li><i class="bi bi-chat-dots"></i> Chatbot</li>
+    <li><i class="bi bi-calendar-check"></i> Streak</li>
+    <li><i class="bi bi-lightbulb"></i> Eco Facts</li>
+    <li><i class="bi bi-bar-chart-line"></i> Quiz & Polls</li>
+    <li><i class="bi bi-people"></i> Why EcoLife</li>
+    <li><i class="bi bi-award"></i> Challenges</li>
+    <li><i class="bi bi-handshake"></i> Partners</li>
+    <li><i class="bi bi-envelope"></i> Contact Us</li>
+  </ul>
+  <div class="eco-impact-box">
+  </div>
+</div>
+
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top w-100 border-bottom border-success border-1">
+  <div class="container-fluid">
+      
+  
+ 
+      
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" >Dashboard</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Chatbot</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Streak</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Quiz</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" onclick="gotocommunity()">Community</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contribute</a></li>
-        </ul>
+          <!-- Centered navigation items -->
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">  <!-- Changed me-auto to mx-auto -->
+              <li class="nav-item eco-logo eco-trigger" onmouseover="showSidePanel()" onmouseout="hideSidePanel()"><img src="{% static 'images/logo.png' %}" alt="Description" width="40em" height="40em">  <div class="eco-logo eco-trigger" onmouseover="showSidePanel()" onmouseout="hideSidePanel()"><img src="{% static 'images/logo.png' %}" alt="Description" width="40em" height="40em"> EcoLife</div>
+              </li>
+              <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/community">Community</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Contribute</a></li>
+          </ul>
 
-        <form class="d-flex me-2" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search"/>
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        <button class="btn btn-success ms-lg-2 mt-2 mt-lg-0" onclick="openPopup()">Get Started</button>
+          <!-- Right-aligned elements -->
+          <div class="d-flex">
+              <form class="d-flex me-2" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search"/>
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              <button class="btn btn-success ms-lg-2 mt-2 mt-lg-0" onclick="openPopup()">Get Started</button>
+          </div>
       </div>
-    </div>
-  </nav>
+  </div>
+</nav>
+  
+  <div class="youtube-background-container mt-6">
+    <video autoplay muted loop playsinline class="youtube-video mt-6">
+      <source src="{% static 'videos/video.mp4' %}" type="video/mp4">
+      
+    </video>
+<div class="youtube-overlay mt-6">
+
+  <h1>Welcome to EcoLife <img src="{% static 'images/logo.png' %}" alt="Description" width="40em" height="40em"  ></h1>
+      <p>Protecting Nature, One Step at a Time</p>
+</div>
+</div>
 
   <!-- Main Content -->
-  <div class="container py-5 mt-5">
+   
+  <div class="container py-0 ">
     <div class="row g-5 align-items-center">
       <!-- Left Column -->
       <div class="col-md-6 mb-5 mb-md-0">
@@ -401,7 +551,7 @@
     <div class="col-lg-4 position-relative">
       <div class="weekly-bg"></div>
       <div class="weekly-box text-light">
-        <h5 class="status-box fw-bold mb-3">🌍 Weekly Challenges</h5>
+        <h5 class="status-box fw-bold mb-3"> <i class="bi bi-calendar-week"> </i>  Weekly Challenges</h5>
     
         <div class="challenge mb-3 p-3">
           <strong >Meatless Week</strong>
@@ -456,7 +606,6 @@
     </div>
   </div>
 </div>
-
 <!-- Join Community Section -->
 <div class="py-5" style="background-color: #4caf50;">
   <div class="container text-center text-white">
@@ -558,17 +707,46 @@
       document.querySelector('.overlay').style.display = 'none';
     }
 
-    function handleLogin() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      console.log("Username:", username);
-      console.log("Password:", password);
-      window.location.href = `{% url 'home' %}?uname=${encodeURIComponent(username)}&pass=${encodeURIComponent(password)}`;
+    // function handleLogin() {
+    //   const username = document.getElementById('username').value;
+    //   const password = document.getElementById('password').value;
+    //   console.log("Username:", username);
+    //   console.log("Password:", password);
+    //   window.location.href = `{% url 'home' %}?uname=${encodeURIComponent(username)}&pass=${encodeURIComponent(password)}`;
       
-      closePopup();
-    }
+    //   closePopup();
+    // }
+    function handleLogin() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  if (username.trim() === '') {
+    alert('Please enter a username.');
+    return;
+  }
+
+  // Save username to localStorage
+  localStorage.setItem('username', username);
+
+  console.log("Username:", username);
+  console.log("Password:", password);
+
+  // Redirect to home page
+  window.location.href = "{% url 'home' %}";
+
+  closePopup();
+}
+
+// When landing page loads, check if username is already saved
+window.onload = function () {
+  const savedUsername = localStorage.getItem('username');
+  if (savedUsername) {
+    // If username exists, redirect to home page
+    window.location.href = "{% url 'home' %}";
+  }
+}
     function openStats(){
-      window.location.href = "/stats";
+      window.location.href = `{% url 'stats' %}`;
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -607,11 +785,21 @@
         });
       }
     });
-  }, { threshold: 0.6 }); // Trigger when 50% of the section is visible
+  }, { threshold: 0.8 }); // Trigger when 50% of the section is visible
 
   observer.observe(document.getElementById('impact-section'));
   });
+
+function showSidePanel() {
+  document.getElementById("ecoSidePanel").style.left = "0";
+}
+
+function hideSidePanel() {
+  document.getElementById("ecoSidePanel").style.left = "-250px";
+}
+
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
   </script>
 </body>

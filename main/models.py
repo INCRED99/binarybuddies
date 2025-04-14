@@ -3,7 +3,19 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 
+class PollQuestion(models.Model):
+    question = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.question
 
+class PollOption(models.Model):
+    question = models.ForeignKey(PollQuestion, on_delete=models.CASCADE, related_name='options')
+    option_text = models.CharField(max_length=255)
+    votes = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return self.option_text
 
 
 class Footprint(models.Model):

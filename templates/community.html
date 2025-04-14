@@ -295,6 +295,7 @@
       padding: 0;
       background-color: #f9fbf9;
       color: #333;
+      /* padding-top: 15vh; */
     }
 
     header {
@@ -851,8 +852,8 @@ blockquote {
 
 
 <!-- NavBar -->
-<div class="d-flex justify-content-between align-items-center mb-5">
-      <div class="logo">🌿 GreenTrack</div>
+<div class="d-flex justify-content-between align-items-center mb-5 fixed-top bg-light border-bottom border-2  py-2 fw-bold">
+      <div class="logo"><img src="{% static 'images/logo.png' %}" alt="Description" width="48em" height="40em">  EcoLife </div>
       <nav class="navbar navbar-expand-lg">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -880,7 +881,7 @@ blockquote {
 </div>
 
 <!-- hero section -->
-<div class="d-flex flex-column justify-content-center align-items-center">
+<div class="d-flex flex-column justify-content-center align-items-center "style="margin-top:15vh">
       <h2>Community Hub</h2>
       <p>Connect with like-minded individuals, share your sustainability journey, and join the conversation.</p>
       <div class="input-group mb-4 mt-3 position-relative" style="max-width: 600px;">

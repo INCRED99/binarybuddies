@@ -13,10 +13,14 @@ import logging
 from django.shortcuts import render, redirect
 import csv
 import os
-from django.shortcuts import render
+from django.shortcuts import render 
 from .models import UserScore
 from django.conf import settings
 from fastai.tabular.all import *
+
+
+MODEL_DIR = "poll_tf_model/model.keras"
+
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -328,13 +332,6 @@ def home(request):
         'random_quote': random_quote,
         'streak': streak,
     })
-
-    return render(request, 'poll.html', {'forms': forms, 'results': results})
-
-
-
-
-
 
 
 
