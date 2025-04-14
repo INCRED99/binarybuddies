@@ -11,6 +11,9 @@ from .models import Streak
 from datetime import timedelta
 import logging
 from django.shortcuts import render, redirect
+
+from .tensorflow_recommender import get_recommendation
+
 import csv
 import os
 from django.shortcuts import render 
@@ -19,11 +22,20 @@ from django.conf import settings
 from fastai.tabular.all import *
 
 
+
 MODEL_DIR = "poll_tf_model/model.keras"
 
 
 # Configure logging
 logger = logging.getLogger(__name__)
+
+
+def recommendation_view(request):
+    recommendation = ''
+    if request.method == 'POST':
+        product_name = request.POST.get('product_name')
+        recommendation = get_recommendation(product_name)
+    return render(request, 'recommendation.html', {'recommendation': recommendation})
 
 # Landing page view
 def landing_page(request):
@@ -294,6 +306,9 @@ def load_random_quote():
 
 
 def home(request):
+
+   
+
     random_quote = load_random_quote()
 
     streak = 1  # Default streak count

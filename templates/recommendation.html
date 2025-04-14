@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sustainable Shopping Assistant 🌱</title>
+</head>
+<body>
+    <h1>Sustainable Shopping Assistant 🌱</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="product_name">Enter product name:</label>
+        <input type="text" name="product_name" required>
+        <button type="submit">Get Recommendation</button>
+    </form>
+
+    {% if recommendation %}
+        <h2>Recommended Alternative:</h2>
+        <p>{{ recommendation }}</p>
+    {% endif %}
+</body>
+</html>
