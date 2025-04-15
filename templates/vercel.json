@@ -1,6 +1,23 @@
 {
+    "version": 2,
+    "builds": [
+      {
+        "src": "templates/landing.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "templates/*.html",
+        "use": "@vercel/static"
+      }
+    ],
     "rewrites": [
       { "source": "/", "destination": "/landing.html" }
+    ],
+    "routes": [
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      }
     ]
   }
   
