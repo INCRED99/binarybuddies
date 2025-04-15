@@ -1,0 +1,90 @@
+body {
+    scroll-behavior: smooth;
+  }
+  header .navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .partners-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+  }
+  .partners-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  .partners-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #6c757d;
+    font-size: 1.1rem;
+  }
+  .partner-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-right: 4px solid #28a745;
+    border-bottom:  4px solid #28a745;
+  }
+  .hover-combined:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.3s ease;
+  }
+  .partner-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  .partner-card p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+  .donation-section {
+    background-color: #f0fdf4;
+    padding: 3rem 0;
+  }
+  .donation-card {
+    border: 1px solid #dcfce7;
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  .donation-card:hover {
+    border-color: #86efac;
+  }
+  .impact-badge {
+    background-color: #f0fdf4;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+  }
+  .contact-section {
+    padding: 3rem 0;
+  }
+  .contact-icon {
+    background-color: #d1fae5;
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+  .contact-form {
+    border: 1px solid #d1fae5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  .footer {
+    background-color: #166534;
+    color: white;
+    padding: 3rem 0;
+  }
+  .footer-links a {
+    color: #bbf7d0;
+    text-decoration: none;
+  }
+  .footer-links a:hover {
+    color: white;
+  }

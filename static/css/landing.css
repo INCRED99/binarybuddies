@@ -1,0 +1,358 @@
+body {
+    padding-top: 2em;
+    user-select: none;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #9be15d 0%, transparent 40%),
+                linear-gradient(225deg, #9be15d 0%, transparent 40%);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+  }
+  .youtube-background-container {
+
+height: 130vh; 
+position:relative;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+color: white;
+padding: 40px;
+/* position: relative;
+width: 100%;
+height: 450px;/
+overflow: hidden; */
+}
+
+.youtube-video {
+
+position: absolute;
+top: -31%;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit:cover;
+z-index: 1;
+pointer-events: none;
+}
+
+.youtube-overlay {
+position: relative;
+z-index: 2;
+text-align: center;
+color: white;
+padding-top: 120px;
+background: rgba(0, 0, 0, 0);
+}
+
+
+
+
+  /* Navbar */
+  #navbar {
+    position: fixed;
+    z-index: 999;
+  }
+
+  
+  /* Buttons */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #45a049;
+  }
+
+  /* Hero & Stats */
+  .badge-green {
+    background-color: #e8f7e9;
+    color: #28a745;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+  }
+
+  .hero-title .green {
+    color: #2e7d32;
+  }
+
+  .btn-custom {
+    background: #72ff79;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+  }
+
+  
+  .stats-box {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    padding: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stats-bg {
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    width: 93%;
+    height: 95%;
+    background: #558f47;
+    border-radius: 16px;
+    
+    transform-origin: 70% -200%;
+    transform: rotate(4deg);
+    z-index: 1;
+  }
+
+  .progress {
+    height: 10px;
+    border-radius: 20px;
+  }
+
+  .stat-item {
+    background: #f0fbe6;
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .icon-circle {
+    background-color: #e8f7e9;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Feature Card */
+  .feature-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Login Popup */
+  .popup {
+    display: none;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    z-index: 1050;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+  }
+
+  .popup input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .popup button {
+    width: 100%;
+    background: #008CBA;
+  }
+
+  .popup button:hover {
+    background: #007bb5;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .btn-custom {
+      width: 100%;
+    }
+
+    .popup {
+      width: 90%;
+    }
+  }
+
+  .weekly-bg {
+  position: absolute;
+  top: 20px;
+  right: -20px;
+  width: 95%;
+  height: 100%;
+  background: #447019;
+  border-radius: 16px;
+  transform-origin: -30% 160%;
+  transform: rotate(-4deg);
+  z-index: 1;
+}
+
+.weekly-box {
+  background: linear-gradient(90deg, #80cd32 0%,  #5A981E 100%);
+  /* background: #aec4a2; */
+  border-radius: 16px;
+  
+  box-shadow: 0 0 30px rgba(0,0,0,0.05);
+  padding: 24px;
+  position: relative;
+  z-index: 2;
+}
+.challenge{
+  background: #4F841C;
+  border-radius: 10px;
+}
+.progress-bar{
+  color:white;
+}
+.btn-success{
+  background:white;
+  color:#345A17;
+}
+.custom-progress {
+  background-color: #447019; /* Bootstrap green */
+}
+
+.custom-progress-bar {
+  background-color: #ffffff !important; /* White bar */
+}
+
+
+.footer {
+    background-color: #166534; /* green-800 */
+    color: white;
+    padding: 3rem 0;
+}
+.footer-links a {
+    color: #bbf7d0; /* green-200 */
+    text-decoration: none;
+}
+.footer-links a:hover {
+    color: white;
+}
+.footer-divider {
+    border-top: 1px solid #14532d; /* green-900 */
+}
+
+/* Trigger area (Eco Bird logo) */
+.eco-trigger {
+/* position: fixed;
+top: 20px;
+left: 20px;
+z-index: 1001; */
+cursor: pointer;
+}
+.eco-logo {
+font-weight: bold;
+font-size: 1.2rem;
+background-color: #dff0d8;
+padding: 10px 15px;
+border-radius: 10px;
+transition: all 0.3s ease-in-out;
+}
+
+/* Side Panel */
+.side-panel {
+position: fixed;
+top: 0;
+left: -250px;
+width: 250px;
+height: 100%;
+background-color: #f1fdf2;
+box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+padding: 20px;
+transition: all 0.4s ease;
+z-index: 1000;
+overflow-y: auto;
+border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;
+}
+
+.side-panel ul li {
+padding: 12px 5px;
+font-size: 1rem;
+color: #2e7d32;
+display: flex;
+align-items: center;
+transition: 0.2s ease-in-out;
+border-radius: 8px;
+}
+
+.side-panel ul li:hover {
+background-color: #d0f0d3;
+padding-left: 12px;
+}
+
+.side-panel ul li i {
+margin-right: 10px;
+font-size: 1.2rem;
+}
+
+/* Eco impact box at the bottom */
+.eco-impact-box {
+margin-top: 40px;
+background-color: #e6f9eb;
+padding: 12px;
+border-radius: 10px;
+font-size: 0.9rem;
+color: #2e7d32;
+box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
