@@ -1,92 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Sustainable Shopping Assistant 🌱</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .hero-section {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-            padding: 3rem 0;
-            border-radius: 0 0 20px 20px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .search-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-        .btn-eco {
-            background-color: #27ae60;
-            color: white;
-            padding: 0.5rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .btn-eco:hover {
-            background-color: #2ecc71;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .form-control {
-            padding: 0.75rem 1.25rem;
-            border-radius: 50px;
-            border: 2px solid #e9ecef;
-        }
-        .form-control:focus {
-            border-color: #2ecc71;
-            box-shadow: 0 0 0 0.25rem rgba(46, 204, 113, 0.25);
-        }
-        .results-container {
-            min-height: 200px;
-            background-color: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 2rem;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-        }
-        .recommendation {
-            background-color: #e8f5e9;
-            border-left: 4px solid #2ecc71;
-            padding: 1rem;
-            border-radius: 4px;
-            font-weight: 500;
-            color: #27ae60;
-        }
-        .learn-more {
-            color: #27ae60;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-        .learn-more:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recommendation.css' %}">
 </head>
 <body>
-    <!-- <h1>Sustainable Shopping Assistant 🌱</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="product_name">Enter product name:</label>
-        <input type="text" name="product_name" required>
-        <button type="submit">Get Recommendation</button>
-    </form>
 
-    {% if recommendation %}
-        <h2>Recommended Alternative:</h2>
-        <p>{{ recommendation }}</p>
-    {% endif %} -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -19,87 +19,13 @@
 
 <body>
 
-<!-- Sidebar Container
-  <aside class="w-64 bg-white border-r shadow-md flex flex-col justify-between p-4">
-    <div> -->
-      <!-- Logo -->
-      <!-- <div class="flex items-center space-x-2 mb-8 text-green-600 font-bold text-xl">
-        <span class="text-2xl">🟢</span>
-        <span>EcoLife</span>
-      </div> -->
-      <!-- Search (optional) -->
-      <!-- <div class="mb-4">
-        <input type="text" placeholder="Search..."
-          class="w-full px-3 py-2 rounded-md bg-gray-100 text-sm focus:outline-none">
-      </div> -->
-      <!-- <centre>
-        <h2> Today's Environmental Tip 🌿</h2>
-      <p>{{ recommendation }}</p>
-      <p>end</p>
-      </centre> -->
-      <!-- <br><br><br><br>
-      </div> -->
-      <!-- <center>
-        <div class="result">
-            <h3>Your Daily Streak:</h3>
-            <p>{{ streak }} day(s) 🔥</p>
-        </div>
-    </center>.  -->
-        <!-- Navigation Menu
-      <nav class="space-y-2 text-gray-700 font-medium text-sm">
-        <a href="#" class="flex items-center p-2 rounded-lg bg-green-100 text-green-700 font-semibold">
-          <span class="material-icons mr-3">dashboard</span> Dashboard
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <span class="material-icons mr-3">chat</span> Chatbot
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <span class="material-icons mr-3">whatshot</span> Streak
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <span class="material-icons mr-3">eco</span> Eco Facts
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <span class="material-icons mr-3">quiz</span> Quiz & Polls
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <span class="material-icons mr-3">group</span> Community
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <span class="material-icons mr-3">flag</span> Challenges
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <span class="material-icons mr-3">handshake</span> Partners
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <span class="material-icons mr-3">mail_outline</span> Contact Us
-        </a>
-        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-gray-100">
-          <span class="material-icons mr-3">volunteer_activism</span> Contribute
-        </a>
-      </nav>
-    </div> -->
-    <!-- Bottom impact card -->
-    <!-- <div class="text-sm bg-gray-100 p-3 rounded mt-6">
-      <p class="font-semibold text-gray-800">Your Eco Impact</p>
-      <p class="text-xs text-gray-600 mt-1">You’ve saved <strong>25kg CO2</strong> this month. Keep going!</p>
-    </div> -->
-  <!-- <div id="chatbot-container">
-    <h3 id="chatbot-title">EcoBot 🌿</h3>
-    <div id="chat-window"></div>
-    <div>
-      <input type="text" id="user-input" placeholder="Ask me about eco tips...">
-      <button id="send-button" onclick="sendMessage()">Send</button>
-    </div>
-  </div> -->
 
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <!-- Brand/Logo -->
-      <a class="navbar-brand  ms-0" href="#">
-        <i class="bi bi-tree-fill"></i> EcoLife
+      <a class="navbar-brand  ms-0 " href="#"> EcoLife
       </a>
       
       <!-- Mobile Toggle Button -->
@@ -282,24 +208,7 @@ Points Added!
         </div>
       </div>
       
-      <!-- EcoQuote Card (more compact height) -->
-       <!-- fixed -->
-  <!-- <div class="quote-card">
-    <h2>Daily Eco Quote</h2>
-    {% if random_quote %}
-      <div class="quote-box">
-        <div class="quote-icon">💡</div>
-        <div class="quote-content">
-          <p class="quote-text">"{{ random_quote.text }}"</p>
-          {% if random_quote.author %}
-          <p class="quote-author">— {{ random_quote.author }}</p>
-          {% endif %}
-        </div>
-      </div>
-    {% else %}
-      <p class="quote-fallback">No quotes available.</p>
-    {% endif %}
-   </div>  -->
+      
       <div class="card quote-card shadow-sm h-39 w-100" style="min-height: 200px;">
         <div class="card-body d-flex flex-column ">
           <h2 class="card-title h3 text-success mb-3">Daily Eco Quote</h2>
@@ -375,29 +284,7 @@ Points Added!
     </div>
   </div>
 </div>
-  <!-- <center>
-    <h1>Carbon Footprint Calculator</h1>
-    <form method="POST" action="/predict/">
-      {% csrf_token %}
-      
-      Daily Electricity Usage (kWh): 
-      <input type="number" name="electricity" step="0.1" min="0" required><br><br>
   
-      Daily Car Travel (km): 
-      <input type="number" name="car_km" step="0.1" min="0" required><br><br>
-  
-      Meat Meals per Week: 
-      <input type="number" name="meat_meals" min="0" required><br><br>
-  
-      Flights per Year: 
-      <input type="number" name="flights" min="0" required><br><br>
-  
-      <button type="submit">Submit</button>
-    </form>
-  </center>
-   -->
- 
-  <!--just to differentiate-->
 
   <div class="text-center my-4" id="carbon-section">
     <button id="toggleCalculatorBtn" class="btn btn-primary">
@@ -502,7 +389,7 @@ Points Added!
           <h5 class="modal-title" id="resultModalLabel">
             <i class="bi bi-patch-check-fill me-2"></i> Calculation Complete
           </h5>
-          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+         
         </div>
 
         <div class="modal-body text-center">
@@ -792,13 +679,7 @@ Points Added!
 
     
   
-<!-- <button onclick="gotoquiz()">Quiz</button> -->
-<!-- <button onclick="gotostats()">Stats</button> -->
-<!-- <button onclick="logout()">Logout</button> -->
 
-
-
-  <!-- Bootstrap JS (for collapses, modals, etc.) -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -815,19 +696,15 @@ Points Added!
       
    }
 
-    // function logout(){
-    //   window.location.href = "/landing";
-    // }
-    // Initialize points variable for the logged-in user
-
+    
 document.addEventListener("DOMContentLoaded",()=>{
-  // document.querySelector("#ok").addEventListener("click",()=>{
+  
   if(parseInt(localStorage.getItem('pointIncreament'))){
     showToast(parseInt(localStorage.getItem('pointIncreament')));
     localStorage.setItem('pointIncreament',0);
   }
 
-// });
+
 });
 
 

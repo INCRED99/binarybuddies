@@ -42,23 +42,11 @@ def landing_page(request):
     return render(request, 'landing.html')
 
 
-# def pole_page(request):
-#     return render(request, 'pole.html')
-
 
 # Community page view
 def community_page(request):
     return render(request, 'community.html')
 
-# Home page view
-# def home_page(request):
-#     quotes = Quote.objects.all()
-#     if quotes.exists():
-#         random_quote = random.choice(quotes)
-#     else:
-#         random_quote = None
-
-#     return render(request, 'home.html', {'random_quote': random_quote})
 
 def home_page(request):
     # Load a random quote
