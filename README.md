@@ -1,16 +1,15 @@
 
-** Developers:-
+**Developers:-
  Dhruv Khandelwal (BT24CSE073)
  Dhruv Gupta (BT24CSE009)
  Dhairya Singhal (BT24CSE070)
- Dev Pathak (BT24CSE030)
-**
+ Dev Pathak (BT24CSE030)**
 
 
 
 
 
-**please note that in .gitignore file , we have /venv .**
+*please note that in .gitignore file , we have /venv .*
 
 
 🌱 Sustainable Living Assistant
