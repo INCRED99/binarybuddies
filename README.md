@@ -1,3 +1,15 @@
+
+** Developers:-
+ Dhruv Khandelwal (BT24CSE073)
+ Dhruv Gupta (BT24CSE009)
+ Dhairya Singhal (BT24CSE070)
+ Dev Pathak (BT24CSE030)
+**
+
+
+
+
+
 **please note that in .gitignore file , we have /venv .**
 
 
@@ -61,8 +73,3 @@ http://127.0.0.1:8000/
 📊 Dataset Used
 recommendations.csv: Contains 100+ pairs of plastic products and their sustainable alternatives. Used for matching via TensorFlow logic.
 
- Contributors:-
- Dhruv Khandelwal
- Dhruv Gupta
- Dhairya Singhal
- Dev Pathak
