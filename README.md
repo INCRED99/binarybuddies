@@ -1,9 +1,9 @@
 
 **Developers:-
- Dhruv Khandelwal (BT24CSE073)
+  Dev Pathak (BT24CSE030)
  Dhruv Gupta (BT24CSE009)
  Dhairya Singhal (BT24CSE070)
- Dev Pathak (BT24CSE030)**
+ Dhruv Khandelwal (BT24CSE073)**
 
 
 
